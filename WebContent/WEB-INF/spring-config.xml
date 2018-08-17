@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-2.0.xsd">
+
+	<context:component-scan base-package="com" />
+	<context:annotation-config />
+
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
+	
+	<!-- WebSocket controller 등록 -->
+<!-- 	<websocket:handlers>
+		<websocket:mapping handler="ws" path="/ws/conn.do" />
+		<websocket:handshake-interceptors>
+			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
+			connection 을 할 때 마다 webSocket에 session 등록
+		</websocket:handshake-interceptors>
+	</websocket:handlers>
+	<bean id="webSessions" class="java.util.HashMap" >
+		<qualifier value="ws" />
+	</bean> -->
+	
+	
+	
+	
+	<!-- Handler Mapping은 default RequestMappingHandleMapping을 쓸꺼니까 변경 필요 x -->
+	<!-- View Resolver 는 prefix, suffix 설정할 거니까 변경 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- json Library -->
+	<bean class="com.google.gson.Gson" />
+	<!-- about dbcp -->
+	<bean id="c3p0" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@13.209.74.103:1521:xe" />
+		<property name="user" value="mgr"/>
+		<property name="password" value="oracle"/>
+	</bean>
+
+	<!-- about myBatis -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="c3p0" />
+		<property name="mapperLocations">
+			<array>
+				<value>/WEB-INF/mapper/*-mapper.xml</value>
+			</array>
+		</property>
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="gson" class="com.google.gson.Gson" />
+	
+	<!-- MultiPart 처리용  : 반드시 name 을 multipartResolver 로 설정-->
+	<bean name="multipartResolver"	class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	
+	<!-- Mongo configuration / namespace 에서 mongo check ! -->
+	<mongo:mongo-client host="13.209.74.103" port="51249" id="mongo" />
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoClient" ref="mongo" />
+		<constructor-arg name="databaseName" value="mgr" />
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
