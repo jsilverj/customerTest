@@ -45,9 +45,9 @@
 	<!-- about dbcp -->
 	<bean id="c3p0" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
 		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@13.209.74.103:1521:xe" />
-		<property name="user" value="mgr"/>
-		<property name="password" value="oracle"/>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@13.125.227.12:1521:xe" />
+		<property name="user" value="movie"/>
+		<property name="password" value="alpha"/>
 	</bean>
 
 	<!-- about myBatis -->
