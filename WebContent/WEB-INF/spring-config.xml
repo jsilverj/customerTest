@@ -32,6 +32,17 @@
 	
 	
 	
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>  
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"> 
+		<property name="definitions">
+			<array>
+				<value>/WEB-INF/tiles/*-tiles.xml</value> 
+			</array>
+		</property>
+	</bean>
+	
+	
+	
 	
 	<!-- Handler Mapping은 default RequestMappingHandleMapping을 쓸꺼니까 변경 필요 x -->
 	<!-- View Resolver 는 prefix, suffix 설정할 거니까 변경 -->
@@ -70,7 +81,7 @@
 	<bean name="multipartResolver"	class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 	
 	<!-- Mongo configuration / namespace 에서 mongo check ! -->
-	<mongo:mongo-client host="13.209.74.103" port="51249" id="mongo" />
+	<mongo:mongo-client host="13.125.227.12" port="17777" id="mongo" />
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoClient" ref="mongo" />
 		<constructor-arg name="databaseName" value="mgr" />
