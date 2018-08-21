@@ -3,9 +3,9 @@
 <html>
 <head>
 
-<title>Insert title here</title>
+<title>MEGA CINEMA</title>
 </head>
 <body>
-	<h1>index</h1>
+	<h1>영화 예매 사이트에 오신 것을 환영합니다!</h1>
 </body>
 </html>
