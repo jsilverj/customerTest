@@ -45,6 +45,7 @@ h1,h2,h3,h4,h5,h6 {
 					<a id="navA" href="/memberInsert.do" class="w3-bar-item w3-button">Join</a>
 					<a id="navA" href="/info.do" class="w3-bar-item w3-button">InFo</a>
 					<a id="navA" href="/customer.do" class="w3-bar-item w3-button">Customer</a>
+					<a id="navA" href="/question.do" class="w3-bar-item w3-button">Question</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
