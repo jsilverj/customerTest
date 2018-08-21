@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class test {
+public class MainController {
 
 	@RequestMapping("/index.do")
 	public String testHandler(HttpSession session) {
