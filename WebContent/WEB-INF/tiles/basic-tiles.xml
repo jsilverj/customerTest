@@ -19,7 +19,6 @@
 		<definition name="loginPage" template="/WEB-INF/view/layout.jsp">
 			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
 			<put-attribute name="contents" value="/WEB-INF/view/main/loginPage.jsp"/>
-			
 		</definition>
 		
 	

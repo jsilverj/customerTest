@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +46,8 @@ public class CustomerDao {
 		return template.selectList("customer.getTop5");
 	}
 	
-	//7.카테고리별 갯수 
-	public int getCateCount(String category) {
-		return template.selectOne("customer.getCateCount", category);
+	//7.카테고리 
+	public List getCateCount() {
+		return template.selectList("customer.getCateCount");
 	}
 }
