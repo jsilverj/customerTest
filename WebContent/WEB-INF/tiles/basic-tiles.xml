@@ -9,20 +9,17 @@
 	</definition>
 		
 		
-		<!-- 타일 여러개 쉽게 처리하기 -->
+		<!-- 메인 페이지 -->
 		<definition name="mainPage" template="/WEB-INF/view/layout.jsp">
 			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
 			<put-attribute name="contents" value="/WEB-INF/view/main/contents.jsp"/>
-		</definition>
+		</definition>	
 		
-		<!-- 로그인 페이지 -->
-		<definition name="loginPage" template="/WEB-INF/view/layout.jsp">
-			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
-			<put-attribute name="contents" value="/WEB-INF/view/main/loginPage.jsp"/>
-			
+		<!-- 공지사항 페이지 -->
+		<definition name="infoPage" template="/WEB-INF/view/info/layout.jsp">
+			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp" />
+			<put-attribute name="contents" value="/WEB-INF/view/info"></put-attribute>
 		</definition>
-		
-	
 		
 	<!-- 	<definition name="board.list" extends="board">
 			<put-attribute name="contents" value="/WEB-INF/view/board/list.jsp"/>
