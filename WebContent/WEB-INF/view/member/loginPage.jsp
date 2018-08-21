@@ -6,39 +6,25 @@
 <div style="height: 80px">
 </div>
 <div align="center">
-<br/>
-<h1>로그인</h1>
+<h1>Login</h1>
 <br/>
 <br/>
 <form action="<c:url value="/logining.do" />" method="post">
-<table>
-<tr>
-	<td>
-		<b>- 이메일</b>
-	</td>
-	<td>
-		<input type="text" name="email" required />
-	</td>
-</tr>
-<tr>
-<td>
-</td>
-</tr>
-<tr>
-	<td>
-		<b>- 비밀번호</b>
-	</td>
-	<td>
-		<input type="text" name="pass" required />
-	</td>
-</tr>
-<tr>
-<td>
-</td>
-</tr>
-</table>
-<p>
-	<input type="checkbox">로그인 유지<button type="submit">로그인</button>
-</p>	
+<div align="center" style="width:500px">
+ <p>- Email <input class="w3-input w3-hover-black" type="text" name="email" required/></p>
+ <p>- Password <input class="w3-input w3-hover-black" type="text" name="pass" required/></p>
+
+</div>
+	
+	<p>
+		<input type="checkbox">keep loged in &nbsp;&nbsp;
+  		<button class="w3-button w3-black w3-round-large" type="submit">Login</button></p>
+	</p>
+	
 </form>
 </div>
+
+
+
+
+

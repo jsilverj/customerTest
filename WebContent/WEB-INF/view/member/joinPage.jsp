@@ -6,83 +6,37 @@
 <div style="height: 80px">
 </div>
 <div align="center">
+<h1>Account</h1>
 <br/>
-<h1>회원가입</h1>
-<br/>
-<br/>
-<form action="<c:url value="/join.do" />" method="post">
-<table>
-<tr>
-	<td>
-		<b>▶ 이메일</b>
-	</td>
-	<td>
-		<input type="text" name="email" required />
-	</td>
-</tr>
-<tr>
-<td>
-</td>
-</tr>
-<tr>
-	<td>
-		<b>▶ 비밀번호</b>
-	</td>
-	<td>
-		<input type="text" name="pass" required />
-	</td>
-</tr>
-<tr>
-<td>
-</td>
-</tr>
-<tr>
-	<td>
-		<b>▶ 이름</b>
-	</td>
-	<td>
-		<input type="text" name="name" required />
-	</td>
-</tr>
-<tr>
-<td>
-</td>
-</tr>
-<tr>
-	<td>
-		<b>▶ 폰번호</b>
-	</td>
-	<td>
-		<input type="text" name="phone" required />
-	</td>
-</tr>
-<tr>
-<td>
-</td>
-</tr>
-<tr>
-	<td>
-		<b>▶ 주소</b>
-	</td>
-	<td>
-		<input type="text" name="address" required />
-	</td>
-</tr>
-<tr>
-<td>
-</td>
-</tr>
-<tr>
-	<td>
-		<b>▶ 생년월일</b> 
-	</td>
-	<td>
-		<input type="text" name="birth" required />
-	</td>
-</tr>
-</table>
-<p>
-	<button type="submit">가 입</button> <button type="reset">재 작 성</button>
-</p>	
+
+<form class="w3-container" action="/joining.do" method="post">
+
+<div align="center" style="width:500px">
+<label>- Email</label>
+<input class="w3-input" type="text" name="email" required />
+
+<label>- Password</label>
+<input class="w3-input" type="text" name="pass" required />
+
+<label>- Name</label>
+<input class="w3-input" type="text" name="name" required />
+
+<label>- Phone</label>
+<input class="w3-input" type="text" name="phone" required />
+
+<label>- Address</label>
+<input class="w3-input" type="text" name="address" required />
+
+<label>- Birth</label>
+<input class="w3-input" type="text" name="birth" required />
+
+</div>
+
+  <p><button class="w3-button w3-black w3-round-large"
+  		type="submit">complete</button>
+  <button class="w3-button w3-black w3-round-large"
+  		type="reset">reset</button>
+  </p>
+	
 </form>
 </div>

@@ -16,6 +16,7 @@ import com.model.MemberVo;
 
 @Controller
 public class AuthController {
+	
 	@Autowired
 	MemberDao memberDao;
 	
@@ -32,7 +33,7 @@ public class AuthController {
 		return mav;
 	}
 	
-	@RequestMapping("/join.do")
+	@RequestMapping("/joining.do")
 	public ModelAndView joinHandle(@ModelAttribute MemberVo memberVo) {
 		ModelAndView mav = new ModelAndView();
 		int m = memberDao.addMember(memberVo);
@@ -41,4 +42,8 @@ public class AuthController {
 		mav.setViewName("joinsuc");
 		return mav;
 	}
+	
+	// 여기서 정규식 이메일, 폰번호, 생년월일
+	
+	
 }
