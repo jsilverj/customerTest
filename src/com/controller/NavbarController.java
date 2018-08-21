@@ -10,7 +10,6 @@ public class NavbarController {
 
 	@RequestMapping("/login.do")
 	public String loginPage(HttpSession session) {
-		session.setAttribute("auth", "aa");
 		return "loginPage";
 	}
 	

@@ -7,14 +7,14 @@
 </div>
 <div align="center">
 <br/>
-<h1>회원가입</h1>
+<h1>로그인</h1>
 <br/>
 <br/>
 <form action="<c:url value="/logining.do" />" method="post">
 <table>
 <tr>
 	<td>
-		<b>▶ 이메일</b>
+		<b>- 이메일</b>
 	</td>
 	<td>
 		<input type="text" name="email" required />
@@ -26,7 +26,7 @@
 </tr>
 <tr>
 	<td>
-		<b>▶ 비밀번호</b>
+		<b>- 비밀번호</b>
 	</td>
 	<td>
 		<input type="text" name="pass" required />
