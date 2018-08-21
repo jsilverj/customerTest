@@ -16,7 +16,14 @@
 	<div id="nav">
 		<tiles:insertAttribute name="nav" />
 	</div>
+	
+	<div id="logo">
+		<tiles:insertAttribute name="logo"/>
+	</div>
 
+	<div id="menu">
+		<tiles:insertAttribute name="menu"/>
+	</div>
 
 	<div id="contents">
 		<tiles:insertAttribute name="contents" />
