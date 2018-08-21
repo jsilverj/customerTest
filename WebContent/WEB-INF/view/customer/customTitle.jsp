@@ -12,7 +12,7 @@
 		<div class="w3-bar" align="center">
 		<c:forEach var="cc" items="${cateCount}" >
 			<button class="w3-button w3-border">
-				<c:out value="${ cc.CATEGORY }(${ cc.C })" />
+				${ cc.CATEGORY }(${ cc.C })
 			</button>
 		</c:forEach>
 		</div>

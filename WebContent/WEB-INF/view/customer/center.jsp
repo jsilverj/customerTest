@@ -17,8 +17,10 @@
 <div id="top5" align="center">
 	<tiles:insertAttribute name="top5" />
 </div>
-
-<div id="faq">
+<br/>
+<br/>
+<br/>
+<div id="faq" align="center">
 	<tiles:insertAttribute name="faq" />
 </div>
 
