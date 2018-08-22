@@ -50,4 +50,9 @@ public class CustomerDao {
 	public List getCateCount() {
 		return template.selectList("customer.getCateCount");
 	}
+	
+	//8.전체 카테고리 갯수
+	public int getAllCount() {
+		return template.selectOne("customer.getAllCount");
+	}
 }

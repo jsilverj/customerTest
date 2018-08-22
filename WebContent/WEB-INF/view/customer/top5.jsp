@@ -18,14 +18,14 @@ td {
 <!-- 상단 여백 -->
 <h4>자주 묻는 질문 TOP5</h4>
 <table>
-	<c:forEach var="t" items="${top}" varStatus="topLast">
+	<c:forEach var="t" items="${top}" varStatus="top">
 		<tr>
 		<td>${t.category }</td>
 			<td><div class="w3-dropdown-click">
-					<button onclick="myFunction('ans_${topLast.index }')"
-						class="w3-button w3-black">${t.title}</button>
-					<div id="ans_${topLast.index }"
-						class="w3-dropdown-content w3-bar-block w3-border">
+					<button onclick="myFunction('top_${top.index }')"
+						class="w3-button w3-white">${t.title}</button>
+					<div id="top_${top.index }"
+						class="w3-dropdown-content w3-border">
 						<div class="w3-bar-item w3-button">${t.content}</div>
 					</div>
 				</div></td>

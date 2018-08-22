@@ -23,27 +23,3 @@
 <div id="faq" align="center">
 	<tiles:insertAttribute name="faq" />
 </div>
-
-
-
-<!-- 
-  <h2>FAQ</h2>
-  <div class="w3-dropdown-click">
-    <button onclick="myFunction()" class="w3-button w3-black">회원가입은 어디서 하나요</button>
-    <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
-      <div class="w3-bar-item w3-button">페이지 우측 상단에서 회원가입이 가능합니다</div>
-    </div>
-  </div>
-</div>
-
-<script>
-function myFunction() {
-    var x = document.getElementById("Demo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
- -->

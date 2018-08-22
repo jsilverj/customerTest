@@ -33,8 +33,13 @@
 		select * from (select * from customer order by count asc) where rownum &lt;= 5 
 	</select>
 
-	<!-- 7.카테고리 및 갯수  -->
+	<!-- 7.카테고리  -->
 	<select id="getCateCount" resultType="java.util.HashMap">
 		select category,count(*) c from customer group by category
+	</select>
+	
+	<!-- 8.카테고리 전체 갯수  -->
+	<select id="getAllCount" resultType="java.lang.Integer">
+		select count(*) from customer
 	</select>
 </mapper>

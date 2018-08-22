@@ -10,12 +10,4 @@
 			<put-attribute name="faq" value="/WEB-INF/view/customer/faq.jsp"/>
 		</definition>
 		
-		<!-- 회원 카테고리 -->
-		<definition name="memberCategory" template="/WEB-INF/view/customer/center.jsp">
-			<put-attribute name="navbar" value="/WEB-INF/view/customer/nav.jsp"/>
-			<put-attribute name="customTitle" value="/WEB-INF/view/customer/customTitle.jsp"/>
-			<put-attribute name="top5" value="/WEB-INF/view/customer/top5.jsp"/>
-			<put-attribute name="faq" value="/WEB-INF/view/customer/faq.jsp"/>
-		</definition>
-		
 </tiles-definitions>
