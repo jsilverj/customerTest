@@ -1,18 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <style>
+	#navA{
+		text-decoration:none;
+		color:black;
+		font-family:"돋움";
+	}
+	#navbar{
+		line-height: 35px;
+	}
+</style> -->
+<!-- Navbar (sit on top) -->
+<style>
+body {
+	font-family: "Times New Roman", Georgia, Serif;
+}
 
-<div>
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Playfair Display";
+	letter-spacing: 5px;
+}
 
-<%-- 	<div id="nav" style="background-color:#FAF4C0; text-align:right; height:40px">
-		<tiles:insertAttribute name="nav" />
-	</div>
-
-
-	<div id="contents">
-		<tiles:insertAttribute name="contents" />
-	</div> --%>
-	
+#navA {
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
 	<div id="nav">
 		<tiles:insertAttribute name="nav" />
 	</div>
@@ -21,4 +42,5 @@
 	<div id="contents">
 		<tiles:insertAttribute name="contents" />
 	</div>
-</div>
+</body>
+</html>

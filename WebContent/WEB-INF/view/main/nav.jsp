@@ -2,30 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="functions" uri="http://java.sun.com/jsp/jstl/functions"%>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<!-- <style>
-	#navA{
-		text-decoration:none;
-		color:black;
-		font-family:"돋움";
-	}
-	#navbar{
-		line-height: 35px;
-	}
-</style> -->
-<!-- Navbar (sit on top) -->
-<style>
-body {font-family: "Times New Roman", Georgia, Serif;}
-h1,h2,h3,h4,h5,h6 {
-    font-family: "Playfair Display";
-    letter-spacing: 5px;
-}
-#navA{
-	text-decoration: none;
-}
-</style>
 <div class="w3-top" >
 	<div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing: 4px;">
 		<a href="#home" class="w3-bar-item w3-button">M o v i e</a>

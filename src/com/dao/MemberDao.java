@@ -22,12 +22,12 @@ public class MemberDao {	// DB를 연결해줌
 		return template.selectOne("member.login", map);
 	}
 	
-	public MemberVo findByEmail(String target) {
-		return template.selectOne("member.findByEmail", target);
-	}
-	
 	public int getSequence() {
 		return template.selectOne("member.getSequence");
+	}
+
+	public int emailCheck(String echeck) {
+		return template.selectOne("member.findByEmail", echeck);
 	}
 	
 }

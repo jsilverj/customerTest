@@ -9,11 +9,10 @@
 		resultType="com.model.MemberVo">
 		select * from member where id=#{email} and pass=#{pass}
 	</select>
-	<select id="findByEmail" parameterType="java.lang.String"
-		resultType="com.model.MemberVo">
-		select * from member where id=#{email}
-	</select>
 	<select id="getSequence" resultType="java.lang.Integer">
 		select member_seq.nextval from dual
+	</select>
+	<select id="findByEmail" resultType="java.lang.Integer" parameterType="java.lang.String">
+		select count (*) from member where email=#{check}
 	</select>
 </mapper>

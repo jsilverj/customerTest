@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.MemberDao;
+import com.google.gson.Gson;
 import com.model.MemberVo;
 
 @Controller
@@ -19,6 +21,9 @@ public class AuthController {
 	
 	@Autowired
 	MemberDao memberDao;
+	@Autowired
+	Gson gson;
+	
 	
 	@RequestMapping("/logining.do")	// do는 컨트롤러로 갈 때
 	public ModelAndView loginHandle(@RequestParam Map map, HttpSession session) {
@@ -43,7 +48,29 @@ public class AuthController {
 		return mav;
 	}
 	
-	// 여기서 정규식 이메일, 폰번호, 생년월일
+	@RequestMapping(value="/emailCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴
+	@ResponseBody
+	public String emailCheckHandle(@RequestParam String echeck) {
+		int r = memberDao.emailCheck(echeck);
+		String t;
+		if(r == 0) {
+			t = "YYYY";
+		}else {
+			t = "NNNN";
+		}
+		return "{\"rst\": \""+t+"\"}";
+	}
+	
+
+	// 여기서 정규식 이메일 중복체크 정규식 , 폰번호 중복체크 정규식 ajax로 처리
+	// 패스워드도 정규식
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
