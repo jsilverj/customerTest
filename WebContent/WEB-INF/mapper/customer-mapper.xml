@@ -20,7 +20,7 @@
 	
 	<!-- 4.카테고리별 검색 -->
 	<select id="getCategory" parameterType="java.lang.String" resultType="com.model.CustomerVo">
-		select * from customer where category=#{category}
+		select * from customer where category=#{'category'}
 	</select>
 	
 	<!-- 5.전체 질문 목록 가져오기 -->
@@ -41,5 +41,10 @@
 	<!-- 8.카테고리 전체 갯수  -->
 	<select id="getAllCount" resultType="java.lang.Integer">
 		select count(*) from customer
+	</select>
+	
+	<!-- 페이징 처리..? -->
+	<select id="getPage" parameterType="java.util.Map" resultType="com.model.CustomerVo">
+		select * from(select rownum r ,c.* from customer c) where r between #{a} and #{b}
 	</select>
 </mapper>

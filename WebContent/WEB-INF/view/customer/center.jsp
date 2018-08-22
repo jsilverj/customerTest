@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <title>FAQ</title>
 
 
@@ -17,9 +17,10 @@
 <div id="top5" align="center">
 	<tiles:insertAttribute name="top5" />
 </div>
-<br/>
-<br/>
-<br/>
+<br />
+<br />
 <div id="faq" align="center">
-	<tiles:insertAttribute name="faq" />
+	<tiles:insertAttribute name="faq" ignore="true" />
 </div>
+<br />
+<br />

@@ -23,7 +23,7 @@ public class CustomerDao {
 	
 	//2.Q&A delete
 	public void deleteCustomer(int num) {
-		template.delete("customer.deleteCustomer", num);  //±Û ¹øÈ£·Î ±Û »èÁ¦
+		template.delete("customer.deleteCustomer", num);  //ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	//3.Q&A update
@@ -31,28 +31,33 @@ public class CustomerDao {
 		template.update("customer.updateCustomer", vo);  
 	}
 	
-	//4.Ä«Å×°í¸®º° °Ë»ö
+	//4.Ä«ï¿½×°ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	public List<CustomerVo> getCategory(String category){
 		return template.selectList("customer.getCategory", category);  
 	}
 	
-	//5.ÀüÃ¼ Áú¹® ¸ñ·Ï °¡Á®¿À±â
+	//5.ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public List<CustomerVo> getAll(){
 		return template.selectList("customer.getAll");  
 	}
 	
-	//6.top5¸¸ °¡Á®¿À±â
+	//6.top5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public List<CustomerVo> getTop5(){
 		return template.selectList("customer.getTop5");
 	}
 	
-	//7.Ä«Å×°í¸® 
+	//7.Ä«ï¿½×°ï¿½ 
 	public List getCateCount() {
 		return template.selectList("customer.getCateCount");
 	}
 	
-	//8.ÀüÃ¼ Ä«Å×°í¸® °¹¼ö
+	//8.ï¿½ï¿½Ã¼ Ä«ï¿½×°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int getAllCount() {
 		return template.selectOne("customer.getAllCount");
+	}
+	
+	//9
+	public List<CustomerVo> getPage(Map data) {
+		return template.selectList("customer.getPage",data);
 	}
 }

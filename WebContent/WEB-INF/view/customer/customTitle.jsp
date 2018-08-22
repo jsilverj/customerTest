@@ -10,16 +10,17 @@
 
 <div align="center" class="w3-container">
 	<div class="w3-bar" align="center">
-		<button class="w3-button w3-border" onclick="click('전체')">전체(${allCount})</button>
-		
+		<a href="/customer/center.do"><button class="w3-button w3-border">전체(${allCount})</button></a>
+
 		<c:forEach var="cc" items="${cateCount}" varStatus="count">
-			<button class="w3-button w3-border" onclick="click('${cc.CATEGORY}')">${ cc.CATEGORY }(${ cc.C })
-			</button>
+			<a href="${count.index }.do"><button class="w3-button w3-border"
+					onclick="click('${cc.CATEGORY}')">${ cc.CATEGORY }(${ cc.C })
+				</button></a>
 		</c:forEach>
 	</div>
 </div>
 
-
+<!-- 
 <script>
 	function click(target) {
 		console.log(target);
@@ -31,6 +32,6 @@
 		console.log("done");
 	}
 </script>
-
+ -->
 
 

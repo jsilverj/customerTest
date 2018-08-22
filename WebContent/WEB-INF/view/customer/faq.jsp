@@ -3,6 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="w3-container">
+
 <h4>전체</h4>
 <table>
 	<c:forEach var="a" items="${all}" varStatus="all">
@@ -19,6 +24,19 @@
 	</c:forEach>
 </table>
 
+<div class="w3-center">
+<div class="w3-bar">
+  <a href="#" class="w3-button">&laquo;</a>
+  <a href="#" class="w3-button">1</a>
+  <a href="#" class="w3-button">2</a>
+  <a href="#" class="w3-button">3</a>
+  <a href="#" class="w3-button">4</a>
+  <a href="#" class="w3-button">&raquo;</a>
+</div>
+</div>
+
+</div>
+
 <script>
 	//질문 누르면 답변이 열림
 	function myFunction(target) {
@@ -29,6 +47,13 @@
 			x.className = x.className.replace(" w3-show", "");
 		}
 	}
+	
+	/*;visit(${a.num }
+	function visit(num){
+		
+		
+	}
+	*/
 </script>
 
 

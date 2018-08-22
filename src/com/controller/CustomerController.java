@@ -1,5 +1,8 @@
 package com.controller;
 
+import java.util.Map;
+
+import org.apache.ibatis.annotations.ResultMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,43 +21,63 @@ public class CustomerController {
 	@Autowired
 	CustomerDao customerdao;
 
-	@Autowired 
+	@Autowired
 	Gson gson;
 
 	@RequestMapping("/center.do")
-	public ModelAndView customerHandle() { // FAQ(°í°´¼¾ÅÍ) ÆäÀÌÁö·Î ÀÌµ¿
-		
+	public ModelAndView customerHandle(Map data) { // FAQ(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("customer");
-		mav.addObject("top", customerdao.getTop5()); 	// µğºñ¿¡¼­ Á¶È¸¼ö »óÀ§ 5°³ Áú¹® °¡Á®¿À±â
-		mav.addObject("all", customerdao.getAll()); 	// µğºñ¿¡¼­ ÀüÃ¼ Áú¹® °¡Á®¿À±â
-		mav.addObject("allCount", customerdao.getAllCount());  	// Ä«Å×°í¸® ÀüÃ¼ °¹¼ö
-		mav.addObject("cateCount", customerdao.getCateCount()); 	// Ä«Å×°í¸® º° °¹¼ö
+		mav.addObject("top", customerdao.getTop5()); // ï¿½ï¿½ñ¿¡¼ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		mav.addObject("all", customerdao.getAll()); // ï¿½ï¿½ñ¿¡¼ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		mav.addObject("allCount", customerdao.getAllCount()); // Ä«ï¿½×°ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+		mav.addObject("cateCount", customerdao.getCateCount()); // Ä«ï¿½×°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		mav.addObject("page", customerdao.getPage(data));
 		return mav;
 	}
 
-	@RequestMapping(value="/ajax.do", produces="application/json;charset=utf-8")
-	@ResponseBody
-	public String ajaxHandle(@RequestParam("category") String category) {
-		
-		CustomerVo vo = new CustomerVo();
-		
-		if(category.equals("ÀüÃ¼")) {
-			vo = (CustomerVo) customerdao.getAll();
-		}else {
-			vo = (CustomerVo) customerdao.getCategory(category);
-		}
-		
-		Gson gson = new Gson();
-		String json = gson.toJson(vo);
-		
-		System.out.println(json);
-		return json;
-		
+	@RequestMapping("/0.do")
+	public ModelAndView memberHandle() {
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member");
+		mav.addObject("top", customerdao.getTop5());
+		mav.addObject("allCount", customerdao.getAllCount());
+		mav.addObject("cateCount", customerdao.getCateCount());
+		// System.out.println(customerdao.getCategory("íšŒì›"));
+		mav.addObject("member", customerdao.getCategory("íšŒì›"));
+		return mav;
 	}
 
-	
-	
-	
-	
+	@RequestMapping("/1.do")
+	public ModelAndView onlineHandle() {
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("online");
+		mav.addObject("top", customerdao.getTop5());
+		mav.addObject("allCount", customerdao.getAllCount());
+		mav.addObject("cateCount", customerdao.getCateCount());
+		// System.out.println(customerdao.getCategory("ì˜¨ë¼ì¸"));
+		mav.addObject("online", customerdao.getCategory("ì˜¨ë¼ì¸"));
+		return mav;
+	}
+
+	/*
+	 * @RequestMapping(value="/ajax.do", produces="application/json;charset=utf-8")
+	 * 
+	 * @ResponseBody public String ajaxHandle(@RequestParam("category") String
+	 * category) {
+	 * 
+	 * CustomerVo vo = new CustomerVo();
+	 * 
+	 * if(category.equals("ï¿½ï¿½Ã¼")) { vo = (CustomerVo) customerdao.getAll(); }else {
+	 * vo = (CustomerVo) customerdao.getCategory(category); }
+	 * 
+	 * Gson gson = new Gson(); String json = gson.toJson(vo);
+	 * 
+	 * System.out.println(json); return json; }
+	 * 
+	 */
+
 }
