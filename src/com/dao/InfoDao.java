@@ -18,4 +18,14 @@ public class InfoDao {
 		
 		return template.selectList("info.infoList", num);	// 공지 사항 전체 리스트를 가져오는 db template
 	}
+
+	public int getPageCount(int num) {
+		
+		return template.selectOne("info.pageCount", num);
+	}
+
+	public InfoVo getReadCustomer(int num) {
+		
+		return template.selectOne("info.readCustomer", num);
+	}
 }

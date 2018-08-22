@@ -34,11 +34,15 @@ public class NavbarController {
 	}
 	
 	@RequestMapping("/info.do")
-	public ModelAndView infoHandle(@RequestParam int num) {				// 공지 사항 페이지로 이동하는 메소드
+	public ModelAndView infoHandle(@RequestParam int num, int page, int viewPage) {				// 공지 사항 페이지로 이동하는 메소드
 		ModelAndView mav = new ModelAndView();
-		List<InfoVo> list = infoDao.getList(num);
-		System.out.println("list : " + list);
+		List<InfoVo> list = infoDao.getList(viewPage);
+		int pageCount = infoDao.getPageCount(page);
+		double aa = (double)pageCount/10;
 		mav.addObject("list", list);
+		mav.addObject("num", num);
+		mav.addObject("pageCount", Math.ceil(aa));
+		mav.addObject("page", page);
 		mav.setViewName("infoPage");
 		return mav;
 	}

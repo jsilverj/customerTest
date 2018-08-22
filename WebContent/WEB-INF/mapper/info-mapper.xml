@@ -4,6 +4,14 @@
 <mapper namespace="info">
 	<select id="infoList" resultType="com.model.InfoVo" parameterType="java.lang.Integer">
 	<!-- select * from info order by num desc -->
-	select * from (select rownum as rnum, d.* from (select * from info order by num desc) d ) f where f.rnum between #{NUM}*10-9 and #{NUM}*10
+		select * from (select rownum as rnum, d.* from (select * from info order by num desc) d ) f where f.rnum between #{NUM}*10-9 and #{NUM}*10
+	</select>
+	
+	<select id="pageCount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		select count(*) from (select * from (select rownum as rnum, d.* from (select * from info order by num desc) d ) f where f.rnum <![CDATA[<]]>= #{num}*50) 
+	</select>
+	
+	<select id="readCustomer" resultType="com.model.InfoVo" parameterType="java.lang.Integer">
+		select * from info where num = #{num}
 	</select>
 </mapper>

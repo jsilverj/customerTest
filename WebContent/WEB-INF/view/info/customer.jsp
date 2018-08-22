@@ -3,7 +3,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<br/>
+
 <div align="center">
 <h2>공 지 사 항</h2>
 
@@ -20,7 +20,7 @@
 				${notice.num }
 			</td >
 			<td style="text-align:center;">
-				${notice.title }
+				<a href="readCustomer.do?num=${notice.num}" style="text-decoration: none">${notice.title }</a>
 			</td>
 			<td style="text-align:center;">
 				${notice.regDate }
@@ -31,5 +31,18 @@
 		</tr>
 	</c:forEach>
 </table>
+<br/>
+	<a href="/info.do?num=1&page=1&viewPage=1" class="w3-button">처음</a>
+	<c:choose>
+		<c:when test="${num ne 1 }">
+			<a href="/info.do?num=${num-1 }&page=${num-1 }&viewPage=${(num-1)*5-4}" class="w3-button">◀</a>
+		</c:when>
+	</c:choose>
+	<c:forEach var="i" begin="${(num-1)*5+1 }" end="${pageCount }" step="1">
+		<a href="/info.do?num=${num }&page=${num}&viewPage=${i}" class="w3-button">${i }</a>
+	</c:forEach>
+	<a href="/info.do?num=${num+1 }&page=${num+1}&viewPage=${(num+1)*5-4}" class="w3-button">▶</a>
+	<a href="#" class="w3-button">끝</a>
 </div>
+
 
