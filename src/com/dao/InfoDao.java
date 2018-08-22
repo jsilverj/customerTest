@@ -16,6 +16,6 @@ public class InfoDao {
 	
 	public List<InfoVo> getList(){
 		
-		return template.selectList("info.infoList");
+		return template.selectList("info.infoList");	// 공지 사항 전체 리스트를 가져오는 db template
 	}
 }

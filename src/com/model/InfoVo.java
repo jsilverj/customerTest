@@ -2,7 +2,8 @@ package com.model;
 
 import java.sql.Date;
 
-public class InfoVo {
+
+public class InfoVo {	// 공지사항 테이블에 대한 VO
 
 	int num;
 	String title;

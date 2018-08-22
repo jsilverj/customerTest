@@ -20,20 +20,20 @@ public class NavbarController {
 	InfoDao infoDao;
 	
 	@RequestMapping("/login.do")
-	public String loginPage(HttpSession session) {
+	public String loginPage(HttpSession session) {	// loginPage로 이동하는 메소드
 		session.setAttribute("auth", "aa");
 		return "loginPage";
 	}
 	
 	@RequestMapping("/logout.do")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session) {		// logout 하는 메소드
 		
 		session.setAttribute("auth", null);
 		return "mainPage";
 	}
 	
 	@RequestMapping("/info.do")
-	public ModelAndView infoHandle() {
+	public ModelAndView infoHandle() {				// 공지 사항 페이지로 이동하는 메소드
 		ModelAndView mav = new ModelAndView();
 		List<InfoVo> list = infoDao.getList();
 		System.out.println("list : " + list);
