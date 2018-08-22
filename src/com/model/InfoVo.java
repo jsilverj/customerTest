@@ -8,7 +8,7 @@ public class InfoVo {	// 공지사항 테이블에 대한 VO
 	int num;
 	String title;
 	String content;
-	Date regDate;
+	Date regDate; 
 	int count;
 	
 	public int getNum() {

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.InfoDao;
@@ -33,9 +34,9 @@ public class NavbarController {
 	}
 	
 	@RequestMapping("/info.do")
-	public ModelAndView infoHandle() {				// 공지 사항 페이지로 이동하는 메소드
+	public ModelAndView infoHandle(@RequestParam int num) {				// 공지 사항 페이지로 이동하는 메소드
 		ModelAndView mav = new ModelAndView();
-		List<InfoVo> list = infoDao.getList();
+		List<InfoVo> list = infoDao.getList(num);
 		System.out.println("list : " + list);
 		mav.addObject("list", list);
 		mav.setViewName("infoPage");
