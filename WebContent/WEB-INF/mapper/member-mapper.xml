@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<insert id="addMember" parameterType="com.model.MemberVo">
+		insert into employee values(#{email},#{pass},#{name},#{phone},#{address}
+		,#{birth}, 0, 1)
+	</insert>
+	<select id="findByEmailAndPass" parameterType="java.util.HashMap"
+		resultType="com.model.MemberVo">
+		select * from member where email=#{email} and pass=#{pass}
+	</select>
+	<select id="getSequence" resultType="java.lang.Integer">
+		select member_seq.nextval from dual
+	</select>
+	<select id="findByEmail" resultType="java.lang.Integer" parameterType="java.lang.String">
+		select count (*) from member where email=#{check}
+	</select>
+</mapper>
