@@ -24,7 +24,7 @@
 		</div>
 
 		<p>
-			<input type="checkbox">keep logged in &nbsp;&nbsp;
+			<input type="checkbox" id="keep">keep logged in &nbsp;&nbsp;
 			<button class="w3-button w3-black w3-round-large" type="submit"
 				id="signin">Sign in</button>
 		</p>
