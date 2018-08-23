@@ -6,3 +6,5 @@
 
 <h1>로그인 에러</h1>
 <c:redirect url="/view/loginpage"></c:redirect>
+
+

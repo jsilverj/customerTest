@@ -8,5 +8,6 @@
 </head>
 <body>
 ${suc }
+<h1>로그인 성공</h1>
 </body>
 </html>

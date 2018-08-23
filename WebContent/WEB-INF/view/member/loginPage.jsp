@@ -15,7 +15,7 @@
 					<span id="emailCheck"></span>
 			</p>
 			<p>
-				- Password <input class="w3-input w3-hover-black" type="text" name="pass" id="pass" required />
+				- Password <input class="w3-input w3-hover-black" type="password" name="pass" id="pass" required />
 					<span id="passCheck"></span>
 			</p>
 
@@ -30,13 +30,14 @@
 	</form>
 </div>
 
+<!-- ajax로 이메일이랑 패스워드 db 체크 -->
 <script>
 	$("#email").on("change", function() { // email DB체크
 		$("#emailCheck").html("");
 		if (emailRule.test($(this).val())) {
 			$.ajax({
 				"url" : "/emailCheckHandle.do",
-				"method" : "get",
+				"method" : "post",
 				"data" : {
 					"echeck" : $(this).val()
 				}

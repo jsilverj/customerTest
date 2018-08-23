@@ -27,24 +27,20 @@ public class AuthController {
 	@Autowired
 	Gson gson;
 	
-	
 	@RequestMapping("/logining.do")	// do는 컨트롤러로 갈 때
 	public ModelAndView loginHandle(@RequestParam Map map, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println(map);
+		// System.out.println(map);
 		MemberVo vo = memberDao.findByEmailAndPass(map);
-		if(vo == null) {
-			mav.setViewName("logerr");	// tiles를 이용해서 페이지 이동을 시키려면 리턴값이나 setviewNames에 적어야할게
-		}else {
+		if(vo != null) {
 			session.setAttribute("auth", vo);	// 로그인 성공하면 세션에 넣어두기
-			mav.setViewName("logsuc");
+			mav.setViewName("mainPage");
 		}
 		return mav;
 	}
 	
 	@RequestMapping("/joinHandle.do")	// joinPage에서 submit하면 애를 찾아와서 실행
 	public ModelAndView joinHandle(@ModelAttribute MemberVo memberVo) {
-		System.out.println("안넘어와요");
 		ModelAndView mav = new ModelAndView();
 		Converter converter = new Converter();
 		Date birth = converter.convertToDate(String.valueOf(memberVo.getBirth()));
