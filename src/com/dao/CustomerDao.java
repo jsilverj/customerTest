@@ -57,7 +57,12 @@ public class CustomerDao {
 	}
 	
 	//9
-	public List<CustomerVo> getPage(Map data) {
+	/*public List<CustomerVo> getPage(Map data) {
 		return template.selectList("customer.getPage",data);
+	}*/
+
+	//10.views
+	public void setCount(Map map) {
+		template.insert("customer.addCount", map);  
 	}
 }

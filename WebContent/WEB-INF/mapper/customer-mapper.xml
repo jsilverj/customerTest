@@ -48,4 +48,10 @@
 		select * from(select rownum r ,c.* from customer c) where r between #{a} and #{b}
 	</select>
 	-->
+	
+	<!-- views -->
+	<insert id="addCount" parameterType="java.util.HashMap">
+		insert into customer values count=count+1 where num=#{num}
+	</insert>
+	
 </mapper>

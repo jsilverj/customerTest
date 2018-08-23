@@ -4,8 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <style>
-ul{
-   list-style-type: none;
+ul.nav{
+    list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -13,7 +13,7 @@ ul{
 	width:40%;
 }
    
-li {
+li.link {
     float: left;
 }
 
@@ -37,11 +37,11 @@ li a:hover {
 
 <h2>FAQ</h2>
 
-<ul>
-<li><a href="/customer/center.do">전체(${allCount})</a></li><!-- 전체 버튼 -->
+<ul class="nav">
+<li class="link"><a href="/customer/center.do">전체(${allCount})</a></li><!-- 전체 버튼 -->
 
 <c:forEach var="cc" items="${cateCount}" varStatus="count"><!-- 카테고리별 버튼 -->
-			<li><a href="${count.index }.do">${ cc.CATEGORY }(${ cc.C })</a></li>
+			<li class="link"><a href="${count.index }.do">${ cc.CATEGORY }(${ cc.C })</a></li>
 		</c:forEach>
 </ul>
 
