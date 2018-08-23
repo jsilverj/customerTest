@@ -4,6 +4,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="functions" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-	<p>
-	로그인 페이지
-	</p>
+<h1>로그인 에러</h1>
+<c:redirect url="/view/loginpage"></c:redirect>
