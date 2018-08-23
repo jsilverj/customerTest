@@ -38,7 +38,7 @@
 		if (emailRule.test($(this).val())) {
 			$.ajax({
 				"url" : "/emailCheckHandle.do",
-				"method" : "get",
+				"method" : "post",
 				"data" : {
 					"echeck" : $(this).val()
 				}
