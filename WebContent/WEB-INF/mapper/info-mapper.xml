@@ -14,4 +14,8 @@
 	<select id="readCustomer" resultType="com.model.InfoVo" parameterType="java.lang.Integer">
 		select * from info where num = #{num}
 	</select>
+	
+	<select id="getSequence" resultType="java.lang.Integer">
+		select 
+	</select>
 </mapper>

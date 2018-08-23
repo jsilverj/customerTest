@@ -28,4 +28,8 @@ public class InfoDao {
 		
 		return template.selectOne("info.readCustomer", num);
 	}
+	
+	public int getInfoSequence() {
+		return template.selectOne("info.getSequence");
+	}
 }
