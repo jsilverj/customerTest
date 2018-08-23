@@ -21,7 +21,7 @@ h1,h2,h3,h4,h5,h6 {
 					<a id="navA" href="/logout.do" class="w3-bar-item w3-button">Logout</a>
 					<a id="navA" href="/info.do?num=1&page=1&viewPage=1" class="w3-bar-item w3-button">InFo</a>
 					<a id="navA" href="/customer.do" class="w3-bar-item w3-button">Customer</a>
-					<a id="navA" href="/question.do" class="w3-bar-item w3-button">Question</a>
+					<a id="navA" href="/question/send.do" class="w3-bar-item w3-button">Question</a>
 				</c:when>
 				<c:otherwise>
 					<a id="navA" href="/login.do" class="w3-bar-item w3-button">Login</a>

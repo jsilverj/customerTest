@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+<definition name="el.question" template="/WEB-INF/view/qlayout.jsp">
+	<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
+	<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
+	<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
+	<put-attribute name="contents" expression="${requestScope.contents}"/>
+	<put-attribute name="contents2" expression="${requestScope.contents2}"/>
+</definition>
+
+<definition name="el.question2" template="/WEB-INF/view/quest/qlayout2.jsp">
+	<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
+	<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
+	<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
+	<put-attribute name="contents" expression="${requestScope.contents}"/>
+</definition>
+</tiles-definitions>
