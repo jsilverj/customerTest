@@ -11,49 +11,26 @@
 	<form action="<c:url value="/logining.do" />" method="post">
 		<div align="center" style="width: 500px">
 			<p>
-				- Email <input class="w3-input w3-hover-black" type="text" name="email" id="email" required />\
-					<span id="emailCheck"></span>
+				- Email <input class="w3-input w3-hover-black" type="text"
+					name="email" id="email" required />
 			</p>
 			<p>
-				- Password <input class="w3-input w3-hover-black" type="password" name="pass" id="pass" required />
-					<span id="passCheck"></span>
+				- Password <input class="w3-input w3-hover-black" type="password"
+					name="pass" id="pass" required /> <span id="loginCheck"></span>
 			</p>
-
+			<p style="color: red;">
+				${fail }
+			</p>
 		</div>
 
 		<p>
-			<input type="checkbox">keep logged in &nbsp;&nbsp;
-			<button class="w3-button w3-black w3-round-large" type="submit">Login</button>
+			<input type="checkbox" id="keep">keep logged in &nbsp;&nbsp;
+			<button class="w3-button w3-black w3-round-large" type="submit"
+				id="signin">Sign in</button>
 		</p>
 		</p>
 
 	</form>
 </div>
-
-<!-- ajax로 이메일이랑 패스워드 db 체크 -->
-<script>
-	$("#email").on("change", function() { // email DB체크
-		$("#emailCheck").html("");
-		if (emailRule.test($(this).val())) {
-			$.ajax({
-				"url" : "/emailCheckHandle.do",
-				"method" : "post",
-				"data" : {
-					"echeck" : $(this).val()
-				}
-			}).done(function(r) {
-				var rCheck = r.rst;
-			}).fail(function(r) {
-				console.log(r);
-			});
-		} else {
-			$("#emailCheck").css("color", "red");
-			$("#emailCheck").html("Email이나 password가 맞지 않습니다.<br/><br/>");
-		}
-	});
-</script>
-
-
-
 
 
