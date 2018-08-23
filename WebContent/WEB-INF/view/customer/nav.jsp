@@ -2,7 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="functions" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- <style>
 	#navA{
 		text-decoration:none;
@@ -33,16 +35,16 @@ h1,h2,h3,h4,h5,h6 {
 				href="#menu" class="w3-bar-item w3-button">Menu</a> <a
 				href="#contact" class="w3-bar-item w3-button">Contact</a> -->
 			<c:choose>
-				<c:when test="${!empty sessionScope.auth}">
+				<c:when test="${!empty sessionScope.auth}">s
 					<a id="navA" href="/logout.do" class="w3-bar-item w3-button">Logout</a>
-					<a id="navA" href="/info.do?num=1&page=1&viewPage=1" class="w3-bar-item w3-button">InFo</a>
+					<a id="navA" href="/info.do" class="w3-bar-item w3-button">InFo</a>
 					<a id="navA" href="/customer/center.do" class="w3-bar-item w3-button">Customer</a>
 					<a id="navA" href="/question.do" class="w3-bar-item w3-button">Question</a>
 				</c:when>
 				<c:otherwise>
 					<a id="navA" href="/login.do" class="w3-bar-item w3-button">Login</a>
 					<a id="navA" href="/memberInsert.do" class="w3-bar-item w3-button">Join</a>
-					<a id="navA" href="/info.do?num=1&page=1&viewPage=1" class="w3-bar-item w3-button">Info</a>
+					<a id="navA" href="/info.do" class="w3-bar-item w3-button">InFo</a>
 					<a id="navA" href="/customer/center.do" class="w3-bar-item w3-button">Customer</a>					
 				</c:otherwise>
 			</c:choose>
