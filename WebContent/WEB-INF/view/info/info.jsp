@@ -19,7 +19,7 @@
 				${notice.num }
 			</td >
 			<td style="text-align:center;">
-				<a href="readCustomer.do?num=${notice.num}" style="text-decoration: none">${notice.title }</a>
+				<a href="readInfo.do?num=${notice.num}" style="text-decoration: none">${notice.title }</a>
 			</td>
 			<td style="text-align:center;">
 				${notice.regDate }
@@ -46,9 +46,9 @@
 	<br/>
 	<c:choose>
 		<c:when test="${sessionScope.auth.grade eq 0 }">
-			<a href="/info.do?num=1&page=1&viewPage=1"><button type="button" class="w3-button w3-black" style="">글작성</button></a>	
 		</c:when>
 	</c:choose>
+			<a href="/writeInfo.do"><button type="button" class="w3-button w3-black" style="">글작성</button></a>	
 </div>
 
 

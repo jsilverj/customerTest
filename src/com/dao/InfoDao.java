@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.model.InfoFileVo;
 import com.model.InfoVo;
 
 @Repository
@@ -27,5 +28,20 @@ public class InfoDao {
 	public InfoVo getReadCustomer(int num) {
 		
 		return template.selectOne("info.readCustomer", num);
+	}
+	
+	public int getInfoSequence() {
+		return template.selectOne("info.getSequence");
+	}
+
+	public int insertInfo(InfoVo infoVo) {
+
+		return template.insert("info.insertInfo", infoVo);
+		
+	}
+
+	public int insertFile(InfoFileVo fileVo) {
+		
+		return template.insert("info.insertFile", fileVo);
 	}
 }

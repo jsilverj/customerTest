@@ -21,14 +21,12 @@ public class NavbarController {
 	InfoDao infoDao;
 	
 	@RequestMapping("/login.do")
-	public String loginPage(HttpSession session) {	// loginPage로 이동하는 메소드
-		session.setAttribute("auth", "aa");
+	public String loginPage(HttpSession session) {
 		return "loginPage";
 	}
 	
-	@RequestMapping("/logout.do")
-	public String logout(HttpSession session) {		// logout 하는 메소드
-		
+	@RequestMapping("/logout.do")		
+	public String logout(HttpSession session) {
 		session.setAttribute("auth", null);
 		return "mainPage";
 	}
@@ -46,6 +44,12 @@ public class NavbarController {
 		mav.setViewName("infoPage");
 		return mav;
 	}
+
+	@RequestMapping("/join.do")	// 어떤 컨트롤러로 이동하는지
+	public String joinPage(HttpSession session) {
+		return "joinPage";	// 이동할 페이지
+	}
+	
 }
 
 
