@@ -11,42 +11,26 @@
 	<form action="<c:url value="/logining.do" />" method="post">
 		<div align="center" style="width: 500px">
 			<p>
-				- Email <input class="w3-input w3-hover-black" type="text" name="email" id="email" required />
+				- Email <input class="w3-input w3-hover-black" type="text"
+					name="email" id="email" required />
 			</p>
 			<p>
-				- Password <input class="w3-input w3-hover-black" type="password" name="pass" id="pass" required />
-					<span id="loginCheck"></span>
+				- Password <input class="w3-input w3-hover-black" type="password"
+					name="pass" id="pass" required /> <span id="loginCheck"></span>
 			</p>
-
+			<p style="color: red;">
+				${fail }
+			</p>
 		</div>
 
 		<p>
 			<input type="checkbox">keep logged in &nbsp;&nbsp;
-			<button class="w3-button w3-black w3-round-large" type="submit" id="signin">Sign in</button>
+			<button class="w3-button w3-black w3-round-large" type="submit"
+				id="signin">Sign in</button>
 		</p>
 		</p>
 
 	</form>
 </div>
 
-<script>
-	$("#signin").on("click", function() { //  로그인 체크
-		$("#loginCheck").html("");
-		if() {
-			$.ajax({
-				"url" : "/loginCheckHandle.do",
-				"method" : "post",
-				"data" : {
-					"echeck" : $(this).val()
-				}
-			}).done(function(r) { //성공
-				
-			}).fail(function(r) {//실패
-				var rCheck = r.fail;
-				
-			});
-		}
-		}
-	});
-</script>
 

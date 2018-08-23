@@ -37,7 +37,8 @@ public class AuthController {
 			mav.setViewName("mainPage");		// mainpage로 이동
 		}else {
 			// mav.addObject("{\"fail\": \"email이나 password가 바르지 않습니다.\"}");
-			
+			mav.addObject("fail", "로그인 실패");
+			mav.setViewName("loginPage");
 		}
 		return mav;
 	}
@@ -67,8 +68,19 @@ public class AuthController {
 		}
 		return "{\"rst\": \""+t+"\"}";
 	}
-	
-	
+/*	
+	@RequestMapping("/loginCheckHandle.do")	
+	public String loginCheckHandle(@RequestParam Map map) {
+		MemberVo vo = memberDao.findByEmailAndPass(map);
+		
+		
+		if(vo == null) {
+			m = "YYYY";
+		}else {
+			m = "NNNN";
+		}
+		return "{\"rst\": \""+m+"\"}";
+	}*/
 
 
 	
