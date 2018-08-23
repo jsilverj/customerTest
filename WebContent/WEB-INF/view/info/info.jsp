@@ -6,7 +6,6 @@
 
 <div align="center">
 <h2>공 지 사 항</h2>
-
 <table class="w3-table w3-striped w3-card-4 w3-hoverable" style="width:1000px;">
     <tr>
       <th style="text-align:center; width:100px;">번 호</th>
@@ -32,17 +31,24 @@
 	</c:forEach>
 </table>
 <br/>
-	<a href="/info.do?num=1&page=1&viewPage=1" class="w3-button">처음</a>
+	<a href="/info.do?num=1&page=1&viewPage=1" ><button type="button" class="w3-button w3-black w3-round-large">처음</button></a>
 	<c:choose>
 		<c:when test="${num ne 1 }">
-			<a href="/info.do?num=${num-1 }&page=${num-1 }&viewPage=${(num-1)*5-4}" class="w3-button">◀</a>
+			<a href="/info.do?num=${num-1 }&page=${num-1 }&viewPage=${(num-1)*5-4}" ><button type="button" class="w3-button w3-black w3-round-large">◀</button></a>
 		</c:when>
 	</c:choose>
 	<c:forEach var="i" begin="${(num-1)*5+1 }" end="${pageCount }" step="1">
 		<a href="/info.do?num=${num }&page=${num}&viewPage=${i}" class="w3-button">${i }</a>
 	</c:forEach>
-	<a href="/info.do?num=${num+1 }&page=${num+1}&viewPage=${(num+1)*5-4}" class="w3-button">▶</a>
-	<a href="#" class="w3-button">끝</a>
+	<a href="/info.do?num=${num+1 }&page=${num+1}&viewPage=${(num+1)*5-4}" ><button type="button" class="w3-button w3-black w3-round-large">▶</button></a>
+	<a href="#" ><button type="button" class="w3-button w3-black w3-round-large">끝</button></a>
+	<br/>
+	<br/>
+	<c:choose>
+		<c:when test="${sessionScope.auth.grade eq 0 }">
+			<a href="/info.do?num=1&page=1&viewPage=1"><button type="button" class="w3-button w3-black" style="">글작성</button></a>	
+		</c:when>
+	</c:choose>
 </div>
 
 

@@ -22,14 +22,23 @@
 			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp" />
 			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
 			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
-			<put-attribute name="contents" value="/WEB-INF/view/info/customer.jsp" />
+			<put-attribute name="contents" value="/WEB-INF/view/info/info.jsp" />
 		</definition>
 		
-		<definition name="readCustomer" template="/WEB-INF/view/layout.jsp">
+		<!-- 공지사항 읽기 페이지 -->
+		<definition name="readInfo" template="/WEB-INF/view/layout.jsp">
 			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp" />
 			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
 			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
-			<put-attribute name="contents" value="/WEB-INF/view/info/readCustomer.jsp" />
+			<put-attribute name="contents" value="/WEB-INF/view/info/readInfo.jsp" />
+		</definition>
+		
+		
+		<definition name="writeInfo" template="/WEB-INF/view/layout.jsp">
+			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp" />
+			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
+			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
+			<put-attribute name="contents" value="/WEB-INF/view/info/writeInfo.jsp" />
 		</definition>
 		
 	<!-- 	<definition name="board.list" extends="board">

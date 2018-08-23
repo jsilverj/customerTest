@@ -10,17 +10,23 @@ import com.dao.InfoDao;
 import com.model.InfoVo;
 
 @Controller
-public class CustomerController {
+public class InfoController {
 
 	@Autowired
 	InfoDao infoDao;
 	
-	@RequestMapping("/readCustomer.do")
-	public ModelAndView readCustomer(@RequestParam int num) {
+	@RequestMapping("/readInfo.do")
+	public ModelAndView readInfo(@RequestParam int num) {
 		ModelAndView mav = new ModelAndView();
 		InfoVo vo = infoDao.getReadCustomer(num);
 		mav.addObject("InfoVo", vo);
-		mav.setViewName("readCustomer");
+		mav.setViewName("readInfo");
 		return mav;
+	}
+	
+	@RequestMapping("/writeInfo.do")
+	public String writeInfo() {
+		
+		return "writeInfo";
 	}
 }

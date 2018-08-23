@@ -12,13 +12,13 @@
 		<table class="w3-table w3-bordered" style="width:1000px;">
 			<tr>
 				<th style="text-align:left;">
-					글번호 : ${InfoVo.num }
+					<small>글번호 : ${InfoVo.num }</small>
 				</th>
 				<th style="text-align:center;">
 					제  목 : ${InfoVo.title }
 				</th>
 				<th style="text-align:right;">
-					등록일 : ${InfoVo.regDate }
+					<small>등록일 : ${InfoVo.regDate }</small>
 				</th>
 			</tr>
 			<tr>
@@ -27,8 +27,9 @@
 				</td>
 			</tr>
 		</table>
-		
-		
+		<br/>
+		<br/>
+		<a href="/info.do?num=1&page=1&viewPage=1"><button type="button" class="w3-button w3-black w3-round-large">목록</button></a>
 	</div>
 </body>
 </html>
