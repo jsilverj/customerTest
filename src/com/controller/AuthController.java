@@ -38,7 +38,7 @@ public class AuthController {
 		return mav;
 	}
 	
-	@RequestMapping("/joining.do")
+	@RequestMapping("/joining.do")	// joinPage에서 submit하면 애를 찾아와서 실행
 	public ModelAndView joinHandle(@ModelAttribute MemberVo memberVo) {
 		ModelAndView mav = new ModelAndView();
 		int m = memberDao.addMember(memberVo);
@@ -62,11 +62,6 @@ public class AuthController {
 	}
 	
 
-	// 여기서 정규식 이메일 중복체크 정규식 , 폰번호 중복체크 정규식 ajax로 처리
-	// 패스워드도 정규식
-	
-	
-	
 	
 	
 	

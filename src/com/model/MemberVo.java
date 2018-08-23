@@ -17,7 +17,7 @@ public class MemberVo {
 		this.email = email;
 	}
 	public String getPass() {
-		return pass;
+		return pass; 
 	}
 	public void setPass(String pass) {
 		this.pass = pass;
