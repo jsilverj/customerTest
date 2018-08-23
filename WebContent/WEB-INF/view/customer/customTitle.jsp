@@ -3,14 +3,58 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<style>
+ul{
+   list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #cccccc;
+	width:40%;
+}
+   
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px;
+    padding : 5px;
+}
+
+li a:hover {
+    background-color: #d9d9d9;
+}
+
+</style>
+
 <div style="height: 80px"></div>
 <!-- 상단 여백 -->
 
 <h2>FAQ</h2>
 
+<ul>
+<li><a href="/customer/center.do">전체(${allCount})</a></li><!-- 전체 버튼 -->
+
+<c:forEach var="cc" items="${cateCount}" varStatus="count"><!-- 카테고리별 버튼 -->
+			<li><a href="${count.index }.do">${ cc.CATEGORY }(${ cc.C })</a></li>
+		</c:forEach>
+</ul>
+
+
+
+
+
+
+
+<!-- 
 <div align="center" class="w3-container">
 	<div class="w3-bar" align="center">
-		<a href="/customer/center.do"><button class="w3-button w3-border">전체(${allCount})</button></a>
+		<a href="javascript:void(0);"><button class="w3-button w3-border">전체(${allCount})</button></a>
 
 		<c:forEach var="cc" items="${cateCount}" varStatus="count">
 			<a href="${count.index }.do"><button class="w3-button w3-border"
@@ -19,19 +63,7 @@
 		</c:forEach>
 	</div>
 </div>
-
-<!-- 
-<script>
-	function click(target) {
-		console.log(target);
-		System.out.println(target);
-		var xhr = new XMLHttpRequest();
-		xhr.open("get", "ajax.do?category=" + target, true); 
-		console.log("ready");
-		xhr.send(); //요청 전송
-		console.log("done");
-	}
-</script>
  -->
+
 
 

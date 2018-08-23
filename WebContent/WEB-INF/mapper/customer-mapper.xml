@@ -18,12 +18,12 @@
 		update customer set title=#{title},content=#{content},regdate=#{regdate},category=#{category}
 	</update>
 	
-	<!-- 4.카테고리별 검색 -->
+	<!-- 4.카테고리별 데이터 가져오기 -->
 	<select id="getCategory" parameterType="java.lang.String" resultType="com.model.CustomerVo">
 		select * from customer where category=#{'category'}
 	</select>
 	
-	<!-- 5.전체 질문 목록 가져오기 -->
+	<!-- 5.전체 데이터 가져오기 -->
 	<select id="getAll" resultType="com.model.CustomerVo">
 		select * from customer 
 	</select>
@@ -33,18 +33,19 @@
 		select * from (select * from customer order by count asc) where rownum &lt;= 5 
 	</select>
 
-	<!-- 7.카테고리  -->
+	<!-- 7.카테고리별 데이터 갯수(특정 카테고리의 데이터 갯수)  -->
 	<select id="getCateCount" resultType="java.util.HashMap">
 		select category,count(*) c from customer group by category
 	</select>
 	
-	<!-- 8.카테고리 전체 갯수  -->
+	<!-- 8.전체 데이터 갯수(전체 카테고리의 데이터 갯수)  -->
 	<select id="getAllCount" resultType="java.lang.Integer">
 		select count(*) from customer
 	</select>
 	
-	<!-- 페이징 처리..? -->
+	<!-- 페이징 처리..? 
 	<select id="getPage" parameterType="java.util.Map" resultType="com.model.CustomerVo">
 		select * from(select rownum r ,c.* from customer c) where r between #{a} and #{b}
 	</select>
+	-->
 </mapper>
