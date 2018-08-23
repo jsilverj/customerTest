@@ -19,7 +19,7 @@ public class MemberDao {	// DB를 연결해줌
 	}	// mapper에 있는 명령문이랑 연결해서 값을 받아 옴
 	
 	public MemberVo findByEmailAndPass(Map map) {
-		return template.selectOne("member.login", map);
+		return template.selectOne("member.findByEmailAndPass", map);
 	}
 	
 	public int getSequence() {

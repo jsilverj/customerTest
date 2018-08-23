@@ -25,11 +25,9 @@ h1,h2,h3,h4,h5,h6 {
 				</c:when>
 				<c:otherwise>
 					<a id="navA" href="/login.do" class="w3-bar-item w3-button">Login</a>
-					<a id="navA" href="/memberInsert.do" class="w3-bar-item w3-button">Join</a>
-					<a id="navA" href="/info.do?num=1&page=1&viewPage=1" class="w3-bar-item w3-button">Info</a>
 					<a id="navA" href="/join.do" class="w3-bar-item w3-button">Join</a>
-					<a id="navA" href="/info.do" class="w3-bar-item w3-button">InFo</a>
-					<a id="navA" href="/customer.do" class="w3-bar-item w3-button">Customer</a>					
+					<a id="navA" href="/info.do?num=1&page=1&viewPage=1" class="w3-bar-item w3-button">Info</a>
+					<a id="navA" href="/customer/center.do" class="w3-bar-item w3-button">Customer</a>					
 				</c:otherwise>
 			</c:choose>
 		</div>

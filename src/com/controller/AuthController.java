@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.sql.Date;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -30,6 +31,7 @@ public class AuthController {
 	@RequestMapping("/logining.do")	// do는 컨트롤러로 갈 때
 	public ModelAndView loginHandle(@RequestParam Map map, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println(map);
 		MemberVo vo = memberDao.findByEmailAndPass(map);
 		if(vo == null) {
 			mav.setViewName("logerr");	// tiles를 이용해서 페이지 이동을 시키려면 리턴값이나 setviewNames에 적어야할게
@@ -40,8 +42,9 @@ public class AuthController {
 		return mav;
 	}
 	
-	@RequestMapping("/joining.do")	// joinPage에서 submit하면 애를 찾아와서 실행
+	@RequestMapping("/joinHandle.do")	// joinPage에서 submit하면 애를 찾아와서 실행
 	public ModelAndView joinHandle(@ModelAttribute MemberVo memberVo) {
+		System.out.println("안넘어와요");
 		ModelAndView mav = new ModelAndView();
 		Converter converter = new Converter();
 		Date birth = converter.convertToDate(String.valueOf(memberVo.getBirth()));

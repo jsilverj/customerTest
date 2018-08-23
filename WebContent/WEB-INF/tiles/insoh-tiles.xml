@@ -5,18 +5,24 @@
 		<!-- 로그인 페이지 -->
 		<definition name="loginPage" template="/WEB-INF/view/layout.jsp">
 			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
+			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
+			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
 			<put-attribute name="contents" value="/WEB-INF/view/member/loginPage.jsp"/>
 		</definition>	
 		
 		<!-- 로그인 에러 페이지 -->
 		<definition name="logerrPage" template="/WEB-INF/view/layout.jsp">
 			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
+			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
+			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
 			<put-attribute name="contents" value="/WEB-INF/view/member/logerr.jsp"/>
 		</definition>
 		
 		<!-- 회원가입 페이지 -->
 		<definition name="joinPage" template="/WEB-INF/view/layout.jsp">
 			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
+			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
+			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
 			<put-attribute name="contents" value="/WEB-INF/view/member/joinPage.jsp"/>
 		</definition>
 		

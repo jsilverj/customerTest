@@ -23,7 +23,6 @@ body {
 	font-family: "Times New Roman", Georgia, Serif;
 }
 
-<<<<<<< HEAD
 
 <html>
 <head>
@@ -34,7 +33,7 @@ body {
 </head>
 <body>
 <div>
-=======
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Playfair Display";
 	letter-spacing: 5px;
@@ -46,7 +45,6 @@ h1, h2, h3, h4, h5, h6 {
 </style>
 </head>
 <body>
->>>>>>> refs/heads/test
 	<div id="nav">
 		<tiles:insertAttribute name="nav" />
 	</div>
@@ -62,9 +60,8 @@ h1, h2, h3, h4, h5, h6 {
 	<div id="contents">
 		<tiles:insertAttribute name="contents" />
 	</div>
-<<<<<<< HEAD
+
 </div>
-=======
->>>>>>> refs/heads/test
+
 </body>
 </html>

@@ -11,13 +11,11 @@
 	<form action="<c:url value="/logining.do" />" method="post">
 		<div align="center" style="width: 500px">
 			<p>
-				- Email <input class="w3-input w3-hover-black" type="text"
-					name="email" id="email" required />\
+				- Email <input class="w3-input w3-hover-black" type="text" name="email" id="email" required />\
 					<span id="emailCheck"></span>
 			</p>
 			<p>
-				- Password <input class="w3-input w3-hover-black" type="text"
-					name="pass" id="pass" required />
+				- Password <input class="w3-input w3-hover-black" type="text" name="pass" id="pass" required />
 					<span id="passCheck"></span>
 			</p>
 
