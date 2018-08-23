@@ -19,7 +19,7 @@
 				${notice.num }
 			</td >
 			<td style="text-align:center;">
-				<a href="readCustomer.do?num=${notice.num}" style="text-decoration: none">${notice.title }</a>
+				<a href="readInfo.do?num=${notice.num}" style="text-decoration: none">${notice.title }</a>
 			</td>
 			<td style="text-align:center;">
 				${notice.regDate }

@@ -16,6 +16,14 @@
 	</select>
 	
 	<select id="getSequence" resultType="java.lang.Integer">
-		select 
+		select info_seq.nextval from dual
 	</select>
+	
+	<insert id="insertInfo" parameterType="com.model.InfoVo">
+		insert into info values(#{num}, #{title}, #{content}, sysdate, 0)
+	</insert>
+	
+	<insert id="insertFile" parameterType="com.model.InfoFileVo">
+		insert into info_file values(info_file_seq.nextval, #{name}, #{length}, #{url}, #{parent})
+	</insert>
 </mapper>

@@ -33,12 +33,20 @@
 			<put-attribute name="contents" value="/WEB-INF/view/info/readInfo.jsp" />
 		</definition>
 		
-		
+		<!-- 공지사항 쓰기 페이지 -->
 		<definition name="writeInfo" template="/WEB-INF/view/layout.jsp">
 			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp" />
 			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
 			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
 			<put-attribute name="contents" value="/WEB-INF/view/info/writeInfo.jsp" />
+		</definition>
+		
+		<!-- 공지사항 이동 실패 -->
+		<definition name="infoPageError" template="/WEB-INF/view/layout.jsp">
+			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp" />
+			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
+			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
+			<put-attribute name="contents" value="/WEB-INF/view/info/infoError.jsp" />
 		</definition>
 		
 	<!-- 	<definition name="board.list" extends="board">
