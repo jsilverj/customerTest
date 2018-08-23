@@ -3,7 +3,7 @@
 <mapper namespace="member">
 	<insert id="addMember" parameterType="com.model.MemberVo">
 		insert into employee values(#{email},#{pass},#{name},#{phone},#{address}
-		,#{birth},#{reservecount}, 1)
+		,#{birth}, 0, 1)
 	</insert>
 	<select id="findByEmailAndPass" parameterType="java.util.HashMap"
 		resultType="com.model.MemberVo">

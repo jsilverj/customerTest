@@ -41,9 +41,8 @@ public class AuthController {
 	@RequestMapping("/joining.do")	// joinPage에서 submit하면 애를 찾아와서 실행
 	public ModelAndView joinHandle(@ModelAttribute MemberVo memberVo) {
 		ModelAndView mav = new ModelAndView();
-		int m = memberDao.addMember(memberVo);
-		System.out.println(m);
-		mav.addObject("suc", m);
+		System.out.println(memberVo);
+		memberDao.addMember(memberVo);
 		mav.setViewName("joinsuc");
 		return mav;
 	}
