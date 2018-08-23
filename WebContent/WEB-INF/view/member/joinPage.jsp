@@ -38,7 +38,7 @@
 	var phoneRule =/^\d{3}-\d{3,4}-\d{4}$/;
 	
 	$("#email").on("change", function() {	// id 가져올때는 #을 붙여
-			$("#emailCheck").html("");
+			$("#emailCheck").html("");	// #emailCheck는 span id
 		if (emailRule.test($(this).val())) {
 			$.ajax({
 				"url" : "/emailCheckHandle.do",

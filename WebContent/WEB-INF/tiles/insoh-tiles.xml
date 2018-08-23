@@ -42,4 +42,6 @@
 			<put-attribute name="contents" value="/WEB-INF/view/member/joinsuc.jsp"/>
 		</definition>
 		
+		
+		
 	</tiles-definitions>

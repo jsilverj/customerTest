@@ -34,7 +34,10 @@ public class AuthController {
 		MemberVo vo = memberDao.findByEmailAndPass(map);
 		if(vo != null) {
 			session.setAttribute("auth", vo);	// 로그인 성공하면 세션에 넣어두기
-			mav.setViewName("mainPage");
+			mav.setViewName("mainPage");		// mainpage로 이동
+		}else {
+			// mav.addObject("{\"fail\": \"email이나 password가 바르지 않습니다.\"}");
+			
 		}
 		return mav;
 	}
@@ -54,7 +57,7 @@ public class AuthController {
 	
 	@RequestMapping(value="/emailCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴
 	@ResponseBody
-	public String emailCheckHandle(@RequestParam String echeck) {
+	public String emailCheckHandle(@RequestParam String echeck) {	// parameter를 echeck로 받아옴
 		int r = memberDao.emailCheck(echeck);
 		String t;
 		if(r == 0) {
@@ -65,6 +68,8 @@ public class AuthController {
 		return "{\"rst\": \""+t+"\"}";
 	}
 	
+	
+
 
 	
 	
