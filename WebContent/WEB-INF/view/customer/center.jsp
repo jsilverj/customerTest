@@ -10,6 +10,14 @@
 	<tiles:insertAttribute name="navbar" />
 </div>
 
+<div id="logo">
+	<tiles:insertAttribute name="logo" />
+</div>
+
+<div id="menu">
+	<tiles:insertAttribute name="menu" />
+</div>
+
 <div id="customTitle" align="center">
 	<tiles:insertAttribute name="customTitle" />
 </div>
