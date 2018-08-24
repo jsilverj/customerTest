@@ -15,4 +15,7 @@
 	<select id="findByEmail" resultType="java.lang.Integer" parameterType="java.lang.String">
 		select count (*) from member where email=#{check}
 	</select>
+	<select id="cookieVo" resultType="com.model.MemberVo" parameterType="java.lang.String">
+		select * from member where email=#{email}
+	</select>
 </mapper>

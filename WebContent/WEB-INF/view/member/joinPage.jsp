@@ -7,7 +7,7 @@
 <div align="center">
 	<h1>Account</h1>
 	<br />
-	<form class="w3-container" action="/joinHandle.do" method="post">
+	<form class="w3-container" action="/joinHandle.do" method="post" autocomplete="off">
 		<div align="center" style="width: 500px">
 			<label>- Email</label>
 			<input class="w3-input" type="text" name="email" id="email" required />

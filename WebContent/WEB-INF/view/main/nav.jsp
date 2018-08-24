@@ -11,6 +11,10 @@ h1,h2,h3,h4,h5,h6 {
 #navA{
 	text-decoration: none;
 }
+#navB{
+	color: blue;
+	font-style: italic;
+}
 </style>
 <div class="w3-top" >
 	<div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing: 4px;">
@@ -18,15 +22,11 @@ h1,h2,h3,h4,h5,h6 {
 		<div class="w3-right w3-hide-small" >
 			<c:choose>
 				<c:when test="${!empty sessionScope.auth}">
+					<a id="navB" href="#" class="w3-bar-item w3-button">${sessionScope.auth.email}</a>
 					<a id="navA" href="/logout.do" class="w3-bar-item w3-button">Logout</a>
 					<a id="navA" href="/info.do?num=1&page=1&viewPage=1" class="w3-bar-item w3-button">InFo</a>
-<<<<<<< HEAD
 					<a id="navA" href="/customer/center.do" class="w3-bar-item w3-button">Customer</a>
-					<a id="navA" href="/question.do" class="w3-bar-item w3-button">Question</a>
-=======
-					<a id="navA" href="/customer.do" class="w3-bar-item w3-button">Customer</a>
 					<a id="navA" href="/question/send.do" class="w3-bar-item w3-button">Question</a>
->>>>>>> branch 'master' of https://github.com/Yeongtae-Seo/alphaProject.git
 				</c:when>
 				<c:otherwise>
 					<a id="navA" href="/login.do" class="w3-bar-item w3-button">Login</a>
