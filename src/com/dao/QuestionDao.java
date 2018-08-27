@@ -41,6 +41,8 @@ public class QuestionDao {
 		return template.selectOne("question.getQuestionByNo", no);
 	}
 	
-	
+	public int getQuestionByReceiverCount(String id) {
+		return template.selectOne("question.getQuestionByReceiverCount",id);
+	}
 	
 }
