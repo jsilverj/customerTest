@@ -1,6 +1,9 @@
 package com.controller;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +27,9 @@ public class InfoController {
 	public ModelAndView readInfo(@RequestParam int num) {
 		ModelAndView mav = new ModelAndView();
 		InfoVo vo = infoDao.getReadCustomer(num);
+		InfoFileVo fvo = infoDao.getInfoFile(num);
 		mav.addObject("InfoVo", vo);
+		mav.addObject("infoFile", fvo);
 		mav.setViewName("readInfo");
 		return mav;
 	}
@@ -35,8 +40,8 @@ public class InfoController {
 		return "writeInfo";
 	}
 	
-	@RequestMapping(value="/insertInfo")
-	public ModelAndView insertInfo(MultipartHttpServletRequest multi) {
+	@RequestMapping(value="/insertInfo.do")
+	public ModelAndView insertInfo(MultipartHttpServletRequest multi, MultipartFile infoFile) throws IOException {
 		ModelAndView mav = new ModelAndView();
 		
 		InfoVo infoVo = new InfoVo();
@@ -48,37 +53,46 @@ public class InfoController {
 		
 //------------------------------------------------------------------------------------------------------------		
 		// 저장 경로 설정
-        String root = multi.getSession().getServletContext().getRealPath("/");
-        String path = root+"resources/upload/" + r;
-           
-        File dir = new File(path);
-        if(!dir.isDirectory()){
-            dir.mkdirs();
-        }
-
+		String root = multi.getSession().getServletContext().getRealPath("/");
+		String uploadPath = root + "infoFile" + "\\" + infoSeq;
+		System.out.println(uploadPath);
 		
-		/*MultipartFile file = multi.getFile("infoFile");
+		File file = new File(uploadPath);
+		if(!file.exists()) {
+			file.mkdirs();
+		}
+
+		System.out.println(infoFile.getOriginalFilename());
+		
+		File upload = new File(file, infoFile.getOriginalFilename());
+		infoFile.transferTo(upload);
+		System.out.println(infoFile.getSize());
+		System.out.println(infoFile.getName());
 		
 		int parent = infoSeq;
-		String url = path;
-		long length = file.getSize();
-		String fileName = file.getOriginalFilename();
-
+		String url = String.valueOf(file);
+		long length = infoFile.getSize();
+		String fileName = infoFile.getOriginalFilename();
+		
+		String fileUrl = "/infoFile/" + infoSeq + "/" + fileName;
+		
 		InfoFileVo fileVo = new InfoFileVo();
+		
 		
 		fileVo.setName(fileName);
 		fileVo.setLength(length);
-		fileVo.setUrl(url);
+		fileVo.setUrl(fileUrl);
 		fileVo.setParent(parent);
 		
-		int fileIn = infoDao.insertFile(fileVo);*/
+		int fileIn = infoDao.insertFile(fileVo);
 		
-		if(r == 1) {
+		if((r == 1)&&(fileIn == 1)) {
 			
 			mav.setViewName("redirect:/info.do?num=1&page=1&viewPage=1");
 		}else {
 			mav.setViewName("infoPageError");
 		}
+        mav.setViewName("redirect:/info.do?num=1&page=1&viewPage=1");
 		return mav;
 	
 	}
