@@ -3,3 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!-- 영화 관리자 페이지  -->
+
+<!-- 영화 정보 입력 -->
+<button>영화 정보 입력</button>
+
+<!-- 영화 정보 수정 -->
+<button>영화 정보 수정</button>
+
+<!-- 영화 정보 삭제 -->
+<button>영화 정보 삭제</button>
