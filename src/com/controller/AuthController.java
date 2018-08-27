@@ -3,9 +3,6 @@ package com.controller;
 import java.sql.Date;
 import java.util.Map;
 
-import javax.servlet.ServletRequestEvent;
-import javax.servlet.ServletRequestListener;
-import javax.servlet.annotation.WebListener;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.WebUtils;
 
 import com.dao.MemberDao;
 import com.google.gson.Gson;
@@ -56,8 +54,28 @@ public class AuthController {
 	
 	// 여기서 쿠키 삭제
 	@RequestMapping("/logout.do")		
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+		
 		session.setAttribute("auth", null);
+		
+/*		Object obj = session.getAttribute("auth");
+		if(obj != null) {
+			MemberVo vo = (MemberVo)obj;
+			// null이 아닐 경우 제거
+			session.removeAttribute("auth");
+			session.invalidate();	// 세션 전체를 날려버림
+*/			
+			// 쿠키를 가져와보고
+			Cookie loginCookie = WebUtils.getCookie(request, "keep");
+			if (loginCookie != null) {
+				// null이 아니라 존재하면
+				loginCookie.setPath("/");
+				// 쿠키는 없앨 때 유효시간을 0으로 설정 invalidate 같은 것 없음
+				loginCookie.setMaxAge(0);
+				// 쿠키 설정을 적용
+				response.addCookie(loginCookie);
+			}
+//		}
 		return "mainPage";
 	}
 
@@ -69,7 +87,7 @@ public class AuthController {
 		memberVo.setBirth(birth);
 		System.out.println(memberVo);
 		memberDao.addMember(memberVo);
-		mav.setViewName("joinsuc");
+		mav.setViewName("loginPage");
 		
 		return mav;
 	}
@@ -87,7 +105,20 @@ public class AuthController {
 		return "{\"rst\": \""+t+"\"}";
 	}
 
-	
+	@RequestMapping(value="/phoneCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴
+	@ResponseBody
+	public String phoneCheckHandle(@RequestParam String pcheck) {	// parameter를 pcheck로 받아옴
+		System.out.println(pcheck);
+		int r = memberDao.phoneCheck(pcheck);
+		String t;
+		if(r == 0) {
+			t = "YYYY";
+		}else {
+			t = "NNNN";
+		}
+		return "{\"rst\": \""+t+"\"}";
+	}
+
 	
 }
 

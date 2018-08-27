@@ -29,9 +29,11 @@ public class MemberDao {	// DB를 연결해줌
 	public int emailCheck(String echeck) {	// 중복확인
 		return template.selectOne("member.findByEmail", echeck);
 	}
+	public int phoneCheck(String pcheck) {
+		return template.selectOne("memger.findByPhone", pcheck);
+	}
 	
 	public MemberVo cookieVo(String email) {
-
 		return template.selectOne("member.cookieVo", email);
 		
 	}
