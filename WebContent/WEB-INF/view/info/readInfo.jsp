@@ -22,8 +22,7 @@
 				</th>
 			</tr>
 			<tr>
-				<td colspan="3" style="text-align:right;">
-				
+				<td colspan="3" style="text-align:right;">	
 					<a href="${infoFile.url }" download>${infoFile.name }</a>
 				</td>
 			</tr>	
