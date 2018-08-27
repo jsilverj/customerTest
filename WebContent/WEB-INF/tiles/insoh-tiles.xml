@@ -42,6 +42,15 @@
 			<put-attribute name="contents" value="/WEB-INF/view/member/joinPage.jsp"/>
 		</definition>
 		
+		<!-- 마이 페이지 -->
+		<definition name="myPage" template="/WEB-INF/view/layout.jsp">
+			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
+			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
+			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
+			<put-attribute name="contents" value="/WEB-INF/view/member/myPage.jsp"/>
+		</definition>
+		
+		
 		
 		
 	</tiles-definitions>

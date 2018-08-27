@@ -53,18 +53,10 @@ public class AuthController {
 	}
 	
 	// 여기서 쿠키 삭제
-	@RequestMapping("/logout.do")		
+	@RequestMapping("/logout.do")	// 로그아웃		
 	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		
-		session.setAttribute("auth", null);
-		
-/*		Object obj = session.getAttribute("auth");
-		if(obj != null) {
-			MemberVo vo = (MemberVo)obj;
-			// null이 아닐 경우 제거
-			session.removeAttribute("auth");
-			session.invalidate();	// 세션 전체를 날려버림
-*/			
+		session.setAttribute("auth", null);	// 세션을 날림
 			// 쿠키를 가져와보고
 			Cookie loginCookie = WebUtils.getCookie(request, "keep");
 			if (loginCookie != null) {
@@ -79,7 +71,7 @@ public class AuthController {
 		return "mainPage";
 	}
 
-	@RequestMapping("/joinHandle.do")	// joinPage에서 submit하면 애를 찾아와서 실행
+	@RequestMapping("/joinHandle.do")	// joinPage에서 submit하면 얘를 찾아와서 실행, 회원가입
 	public ModelAndView joinHandle(@ModelAttribute MemberVo memberVo) {
 		ModelAndView mav = new ModelAndView();
 		Converter converter = new Converter();
@@ -92,7 +84,7 @@ public class AuthController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/emailCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴
+	@RequestMapping(value="/emailCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴, 이메일 중복확인
 	@ResponseBody
 	public String emailCheckHandle(@RequestParam String echeck) {	// parameter를 echeck로 받아옴
 		int r = memberDao.emailCheck(echeck);
@@ -105,7 +97,7 @@ public class AuthController {
 		return "{\"rst\": \""+t+"\"}";
 	}
 
-	@RequestMapping(value="/phoneCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴
+	@RequestMapping(value="/phoneCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴, 폰번호 중복확인
 	@ResponseBody
 	public String phoneCheckHandle(@RequestParam String pcheck) {	// parameter를 pcheck로 받아옴
 		System.out.println(pcheck);
