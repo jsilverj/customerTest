@@ -37,9 +37,11 @@
 			<a href="/info.do?num=${num-1 }&page=${num-1 }&viewPage=${(num-1)*5-4}" ><button type="button" class="w3-button w3-black w3-round-large">◀</button></a>
 		</c:when>
 	</c:choose>
+	
 	<c:forEach var="i" begin="${(num-1)*5+1 }" end="${pageCount }" step="1">
 		<a href="/info.do?num=${num }&page=${num}&viewPage=${i}" class="w3-button">${i }</a>
 	</c:forEach>
+	
 	<a href="/info.do?num=${num+1 }&page=${num+1}&viewPage=${(num+1)*5-4}" ><button type="button" class="w3-button w3-black w3-round-large">▶</button></a>
 	<a href="#" ><button type="button" class="w3-button w3-black w3-round-large">끝</button></a>
 	<br/>
