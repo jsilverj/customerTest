@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
 <title>Insert title here</title>
@@ -28,7 +29,7 @@
 			</tr>	
 			<tr>
 				<td colspan="3" style="height:500px;">
-					${InfoVo.content }
+					<c:out value="${InfoVo.content }" escapeXml="true"></c:out>
 				</td>
 			</tr>
 		</table>
