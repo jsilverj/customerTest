@@ -27,7 +27,9 @@ public class InfoController {
 	public ModelAndView readInfo(@RequestParam int num) {
 		ModelAndView mav = new ModelAndView();
 		InfoVo vo = infoDao.getReadCustomer(num);
+		InfoFileVo fvo = infoDao.getInfoFile(num);
 		mav.addObject("InfoVo", vo);
+		mav.addObject("infoFile", fvo);
 		mav.setViewName("readInfo");
 		return mav;
 	}
@@ -72,11 +74,14 @@ public class InfoController {
 		long length = infoFile.getSize();
 		String fileName = infoFile.getOriginalFilename();
 		
+		String fileUrl = "/infoFile/" + infoSeq + "/" + fileName;
+		
 		InfoFileVo fileVo = new InfoFileVo();
+		
 		
 		fileVo.setName(fileName);
 		fileVo.setLength(length);
-		fileVo.setUrl(url);
+		fileVo.setUrl(fileUrl);
 		fileVo.setParent(parent);
 		
 		int fileIn = infoDao.insertFile(fileVo);

@@ -44,9 +44,11 @@ public class InfoDao {
 		
 		return template.insert("info.insertFile", fileVo);
 	}
-	
-	public InfoFileVo getInfoFile(int parent) {
+
+	public InfoFileVo getInfoFile(int num) {
 		
-		return template.selectOne("info.getInfoFile", parent);
+		return template.selectOne("info.readFile", num);
 	}
+	
+	
 }
