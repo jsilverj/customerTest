@@ -26,4 +26,9 @@
 	<insert id="insertFile" parameterType="com.model.InfoFileVo">
 		insert into info_file values(info_file_seq.nextval, #{name}, #{length}, #{url}, #{parent})
 	</insert>
+	
+	
+	<select id="readFile" parameterType="java.lang.Integer" resultType="com.model.InfoFileVo">
+		select f.* from (select * from info where num = #{num}) i left join info_file f on i.num = f.parent
+	</select>
 </mapper>

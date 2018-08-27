@@ -22,6 +22,11 @@
 				</th>
 			</tr>
 			<tr>
+				<td colspan="3" style="text-align:right;">	
+					<a href="${infoFile.url }" download>${infoFile.name }</a>
+				</td>
+			</tr>	
+			<tr>
 				<td colspan="3" style="height:500px;">
 					${InfoVo.content }
 				</td>
