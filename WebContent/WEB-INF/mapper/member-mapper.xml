@@ -21,4 +21,7 @@
 	<select id="cookieVo" resultType="com.model.MemberVo" parameterType="java.lang.String">
 		select * from member where email=#{email}
 	</select>
+	<update id="modify" parameterType="java.util.Map">	<!-- 하나 아니면 무조건 map이나 vo -->
+		update member set pass=#{pass},name=#{name},phone=#{phone},addr=#{addr} where email=#{email}
+	</update>
 </mapper>

@@ -50,4 +50,5 @@ public class QuestionDao {
 		return template.selectList("question.getAnswerParent",no);
 	}
 	
+	
 }
