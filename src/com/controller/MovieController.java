@@ -24,5 +24,23 @@ public class MovieController {
 
 		return mav;
 	}
+	
+	@RequestMapping("/movieManager.do")
+	public ModelAndView movieManagerHandle() {
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("genre", moviedao.getGenre());
+		mav.addObject("rating", moviedao.getRating());
+		mav.setViewName("manager");
+
+		return mav;
+	}
+	
+	@RequestMapping("/insertManager.do")
+	public ModelAndView insertManagerHandle() {
+
+		ModelAndView mav = new ModelAndView();
+		return mav;
+	}
 
 }

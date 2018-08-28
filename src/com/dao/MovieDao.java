@@ -34,4 +34,12 @@ public class MovieDao {
 	public List getMovieGrade() {
 		return template.selectList("movie.getMovieGrade");
 	}
+	//6.영화 장르 가져오기
+	public List getGenre() {
+		return template.selectList("movie.getGenre");
+	}
+	//7.영화 관람등급 가져오기
+	public List getRating() {
+		return template.selectList("movie.getRating");
+	}
 }

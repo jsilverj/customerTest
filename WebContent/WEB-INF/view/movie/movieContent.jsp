@@ -10,7 +10,8 @@
 <!-- 상단 여백 -->
 
 <div class="w3-container" align="center">
-	<a href="/movieList.do"><button class="w3-button w3-green">평점순</button></a>
+	<a href="/movie/movieList.do"><button class="w3-button w3-green">평점순</button></a>
+	<a href="/movie/movieManager.do"><button class="w3-button w3-green">DB 관리</button></a>
 </div>
 
 <div class="w3-container" align="center">
