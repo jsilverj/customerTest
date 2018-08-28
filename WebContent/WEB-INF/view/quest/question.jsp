@@ -28,14 +28,18 @@
 				<tr>
 					<td><input type="checkbox"></td>
 					<td>${qvo.writer }</td>
-					<td><a href="/message/show.do?no=${qvo.num }" target="_blank">
+					<td><a href="/question/show.do?no=${qvo.num }" style= "text-decoration:none" >
 						<c:set var="ct" value="${fn:escapeXml(qvo.title) }" />
 						<c:choose>
 							<c:when test="${fn:length(ct) gt 21 }">
-							${fn:substring(ct,0,21) }··
+							${fn:substring(ct,0,21) }··<c:if test="${qvo.cnt ne 0 }">
+							<span>💬</span>
+							</c:if>
 							</c:when>
 							<c:otherwise>
-							${ct }
+							${ct }<c:if test="${qvo.cnt ne 0 }">
+							<span>💬</span>
+							</c:if>
 							</c:otherwise>
 						</c:choose>
 						</a>

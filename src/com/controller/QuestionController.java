@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.QuestionDao;
+import com.model.AnswerVo;
 import com.model.MemberVo;
 import com.model.QuestionFileVo;
 import com.model.QuestionVo;
@@ -96,10 +97,14 @@ public class QuestionController {
 	public ModelAndView showHandle(@SessionAttribute(name="auth")MemberVo vo,@RequestParam(name="no")int no) {
 		ModelAndView mav = new ModelAndView();
 		QuestionVo qvo= questionDao.getQuestionByNo(no);
+		QuestionFileVo qfvo = questionDao.getQuestionFileByParent(no);
+		List<AnswerVo> avo = questionDao.getAnswerParent(no);
 		mav.setViewName("el.question2");
 		mav.addObject("contents", "/WEB-INF/view/quest/show.jsp");
 		mav.addObject("qvo", qvo);
-		mav.addObject("attach", questionDao.getQuestionFileByParent(no));
+		mav.addObject("attach", qfvo);
+		mav.addObject("avo", avo);
+		
 		return mav;
 	}
 }
