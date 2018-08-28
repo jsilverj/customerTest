@@ -31,7 +31,7 @@ public class UploadService {
 		QuestionFileVo vo = new QuestionFileVo();
 		vo.setFname(file.getOriginalFilename());
 		vo.setFsize(file.getSize());
-		vo.setFurl("attach/"+parent+"/"+file.getOriginalFilename());
+		vo.setFurl("/attach/"+parent+"/"+file.getOriginalFilename());
 		vo.setParent(parent);
 		System.out.println(vo.toString());
 		return vo;
