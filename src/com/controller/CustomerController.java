@@ -63,4 +63,10 @@ public class CustomerController {
 		return mav;
 	}
 
+	// FAQ 작성 페이지
+	@RequestMapping("/writeFaq.do")
+	public String writeFaqHandle() {
+		return "writeFaq";
+	}
+
 }

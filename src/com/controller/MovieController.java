@@ -16,13 +16,13 @@ public class MovieController {
 
 	@RequestMapping("/movieList.do")
 	public ModelAndView movieListHandle() {
-	
+
 		ModelAndView mav = new ModelAndView();
 		System.out.println(moviedao.getMovieGrade());
-		//mav.addObject("movie", moviedao.getMovieGrade());
+		mav.addObject("movie", moviedao.getMovieGrade());
 		mav.setViewName("movie");
-		
+
 		return mav;
 	}
-	
+
 }

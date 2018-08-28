@@ -9,6 +9,7 @@
 
 <div>
 	<ul>
+		<h4>${category[0].category}</h4>
 		<div style="text-align: left;"
 			class="w3-container w3-border-dark-grey w3-border-bottom w3-border-top w3-padding-16">
 			<span>분류</span>질문

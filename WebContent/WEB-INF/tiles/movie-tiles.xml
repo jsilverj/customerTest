@@ -5,7 +5,7 @@
 		
 		<!-- 영화 페이지 -->
 		<definition name="movie" template="/WEB-INF/view/movie/movieList.jsp">
-			<put-attribute name="navbar" value="/WEB-INF/view/movie/nav.jsp"/>
+			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
 			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
 			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
 			<put-attribute name="movieContent" value="/WEB-INF/view/movie/movieContent.jsp"/>			

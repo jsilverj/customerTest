@@ -7,7 +7,7 @@
 
 
 <div id="nav">
-	<tiles:insertAttribute name="navbar" />
+	<tiles:insertAttribute name="nav" />
 </div>
 
 <div id="logo">

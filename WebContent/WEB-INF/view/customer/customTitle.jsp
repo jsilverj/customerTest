@@ -35,11 +35,22 @@ li a:hover {
 em {
 	color: #cc0000;
 }
+
+.relative {
+	position: relative;
+	top: 20px;
+	left: 350px;
+	width: 120px;
+	height: 0;
+}
 </style>
 
 <div style="height: 20px"></div>
 <!-- 상단 여백 -->
-
+<div class="relative">
+	<a href="/customer/writeFaq.do"><button class="w3-btn w3-pale-red">글
+			작성</button></a>
+</div>
 <h2>고객센터</h2>
 <div>
 	<ul class="nav">
