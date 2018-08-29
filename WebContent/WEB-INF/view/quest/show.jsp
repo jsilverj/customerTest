@@ -39,19 +39,21 @@
 			</th>
 		</tr>
 		<tr>
-			<td colspan="3" style="height: 500px;">${qvo.content }</td>
+			<td colspan="3" style="height: 500px;"><c:out
+					value="${qvo.content }" escapeXml="true"></c:out></td>
 		</tr>
 		<c:if test="${avo ne null }">
-		<c:forEach var="answer" items="${avo }">
-			<tr>
-			<th colspan="2" style="text-align: left;"><small>답변 : ${answer.acontent }</small></th>
-			
-			<th style="text-align: right;"><small> 등록일 : <fmt:formatDate
-						value="${answer.adate }" pattern="yy-MM-dd [HH:mm]" />
-			</small></th>
-			
-		</tr>
-		</c:forEach>
+			<c:forEach var="answer" items="${avo }">
+				<tr>
+					<th colspan="2" style="text-align: left;"><small>답변 :
+							${answer.acontent }</small></th>
+
+					<th style="text-align: right;"><small> 등록일 : <fmt:formatDate
+								value="${answer.adate }" pattern="yy-MM-dd [HH:mm]" />
+					</small></th>
+
+				</tr>
+			</c:forEach>
 		</c:if>
 	</table>
 	<br /> <br /> <a href="/question/send.do"><button type="button"
