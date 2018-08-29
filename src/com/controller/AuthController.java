@@ -78,9 +78,13 @@ public class AuthController {
 		Date birth = converter.convertToDate(String.valueOf(memberVo.getBirth()));
 		memberVo.setBirth(birth);
 		System.out.println(memberVo);
-		memberDao.addMember(memberVo);
-		mav.setViewName("loginPage");
-		
+		int md = memberDao.addMember(memberVo);
+		System.out.println("조인 핸들");
+		if(md == 1) {
+			mav.setViewName("joinSucc");
+		}else {
+			mav.setViewName("joinErr");
+		}
 		return mav;
 	}
 	
@@ -112,17 +116,8 @@ public class AuthController {
 	}
 	
 
-	@RequestMapping("/modifyHandle.do")	// memberModi에서 submit하면 얘를 찾아서 실행
-	public ModelAndView modifyHandle(@ModelAttribute MemberVo memberVo) {
-		ModelAndView mav = new ModelAndView();
-		Converter converter = new Converter();
-		Date birth = converter.convertToDate(String.valueOf(memberVo.getBirth()));
-		memberVo.setBirth(birth);
-		System.out.println(memberVo);
-		memberDao.addMember(memberVo);
-		mav.setViewName("mainPage");
-		return mav;
-	}
+	
+	
 
 	
 }

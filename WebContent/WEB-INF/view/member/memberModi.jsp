@@ -7,28 +7,30 @@
 <div align="center">
 	<h1>Modification</h1>
 	<br />
-	<form class="w3-container" action="/joinHandle.do" method="post" autocomplete="off">
+	<form class="w3-container" action="/modiSucHandle.do" method="post" autocomplete="off">
 		<div align="center" style="width: 500px">
-			<label>- Email</label>
-			${person.email }
+			<input type="hidden" value="${person.email }" name="email" />
+			<b>${person.email }</b>(${person.birth })<br/><br/>
 			<label>- modify Password</label><br/>
 			<small>(숫자와 문자 포함 6자리 이상 입력)</small>
-			<input class="w3-input" type="password" name="pass" id="pass" placeholder="비밀번호 입력" required />
+			<input class="w3-input" type="password" name="pass" id="pass" value="${person.pass }" required />
 			<span id="passCheck"></span>
 			<label>- modify Name</label>
-			<input class="w3-input" type="text" name="name" placeholder="이름 입력" required />
+			<input class="w3-input" type="text" name="name" value="${person.name}" required />
 			<label>- modify Phone</label>
-			<input class="w3-input" type="text" name="phone" id="phone" placeholder="ex)010-XXXX-XXXX" required />
+			<input class="w3-input" type="text" name="phone" id="phone" value="${person.phone }" required />
 			<span id="phoneCheck"></span>
 			<label>- modify Address</label>
-			<input class="w3-input" type="text" name="address" id="addr" placeholder="주소 입력 클릭" onclick="sample4_execDaumPostcode()" />
-			<label>- Birth</label>
-			${person.birth }
+			<input class="w3-input" type="text" name="address" id="addr" value="${person.address }" onclick="sample4_execDaumPostcode()" />
 		</div>
 		<p>
 			<button class="w3-button w3-black w3-round-large" type="submit">submit</button>
 			<button class="w3-button w3-black w3-round-large" type="reset">reset</button>
 		</p>
+	<p align="left">
+		<a href="/withdrow.do"><button class="w3-button w3-black w3-round-large" type="button">withdrawal</button></a>
+	</p>
+		
 	</form>
 </div>
 <script>

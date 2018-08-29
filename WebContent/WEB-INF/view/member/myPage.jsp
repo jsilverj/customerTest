@@ -14,13 +14,13 @@
 				<p class="w3-xlarge" align="right">💎admin &nbsp;&nbsp;&nbsp;</p>
 			</c:when>
 			<c:when test="${person.grade =='1' }">
-				<p class="w3-xlarge">💎white &nbsp;&nbsp;&nbsp;</p>
+				<p class="w3-xlarge" align="right">💎white &nbsp;&nbsp;&nbsp;</p>
 			</c:when>
 			<c:when test="${person.grade =='2' }">
-				<p class="w3-xlarge">💎silver &nbsp;&nbsp;&nbsp;</p>
+				<p class="w3-xlarge" align="right">💎silver &nbsp;&nbsp;&nbsp;</p>
 			</c:when>
 			<c:otherwise>
-				<p class="w3-xlarge">💎gold &nbsp;&nbsp;&nbsp;</p>
+				<p class="w3-xlarge" align="right">💎gold &nbsp;&nbsp;&nbsp;</p>
 			</c:otherwise>
 		</c:choose>
 		<div class="w3-padding-22"></div>
@@ -33,7 +33,7 @@
   <div class="w3-card w3-container" style="min-height:460px">
   <br/>
   <h3>나의 정보관리</h3><br/>
-  <p class="w3-jumbo">📝</p>
+  <p class="w3-jumbo"><a href="/modifyHandle.do">📝</a></p>
   </div>
 </div>
 
