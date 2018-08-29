@@ -27,8 +27,8 @@ public class MovieDao {
 		template.insert("movie.deleteMovie",num);
 	}
 	// 4.영화 상세 정보 가져오기 
-	public List<MovieDetailVo> getMovie() {
-		return template.selectList("movie.getMovie");
+	public List<MovieDetailVo> getMovie(int num) {
+		return template.selectList("movie.getMovie",num);
 	}
 	// 5.영화 평점순 가져오기
 	public List getMovieGrade() {

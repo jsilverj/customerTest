@@ -3,6 +3,7 @@ package com.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.MovieDao;
@@ -14,32 +15,45 @@ public class MovieController {
 	@Autowired
 	MovieDao moviedao;
 
+	//영화 페이지
 	@RequestMapping("/movieList.do")
 	public ModelAndView movieListHandle() {
 
 		ModelAndView mav = new ModelAndView();
-		System.out.println(moviedao.getMovieGrade());
-		mav.addObject("movie", moviedao.getMovieGrade());
+		//System.out.println(moviedao.getMovieGrade());  
+		mav.addObject("movie", moviedao.getMovieGrade());  //영화 평점순으로 정렬하여 데이터 가져오기
 		mav.setViewName("movie");
 
 		return mav;
 	}
 	
+	//영화 관리자 페이지
 	@RequestMapping("/movieManager.do")
 	public ModelAndView movieManagerHandle() {
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("genre", moviedao.getGenre());
-		mav.addObject("rating", moviedao.getRating());
+		mav.addObject("genre", moviedao.getGenre());  //영화 장르 가져오기
+		mav.addObject("rating", moviedao.getRating());  //영화 관람등급 가져오기
 		mav.setViewName("manager");
 
 		return mav;
 	}
 	
+	//
 	@RequestMapping("/insertManager.do")
 	public ModelAndView insertManagerHandle() {
 
 		ModelAndView mav = new ModelAndView();
+		return mav;
+	}
+	
+	//영화 상세 페이지
+	@RequestMapping("/movieDetail.do")
+	public ModelAndView detailHandle(@RequestParam("num") int num) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println(moviedao.getMovie(num));
+		mav.addObject("movie", moviedao.getMovie(num));  //영화 전체 정보 가져오기
+		mav.setViewName("detail");		
 		return mav;
 	}
 
