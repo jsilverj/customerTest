@@ -79,7 +79,7 @@
 			<put-attribute name="nav" value="/WEB-INF/view/main/nav.jsp"/>
 			<put-attribute name="logo" value="/WEB-INF/view/main/logo.jsp"/>
 			<put-attribute name="menu" value="/WEB-INF/view/main/menu.jsp"/>
-			<put-attribute name="contents" value="/WEB-INF/view/member/confirm.jsp"/>
+			<put-attribute name="contents" value="/WEB-INF/view/member/deleteSuc.jsp"/>
 		</definition>
 		
 		

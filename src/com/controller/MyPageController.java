@@ -1,5 +1,7 @@
 package com.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -47,20 +49,40 @@ public class MyPageController {
 		return mav;
 	}
 	
-	@RequestMapping("/deleteHandle.do")
+	@RequestMapping("/withdraw.do")	// 탈퇴버튼 누르면 이동
 	public ModelAndView withHandle(WebRequest webRequest) {
 		ModelAndView mav = new ModelAndView();
 		MemberVo mvo = (MemberVo) webRequest.getAttribute("auth", webRequest.SCOPE_SESSION);
 		mav.addObject("person",mvo);
-		mav.setViewName("comfirmSend");
+		mav.setViewName("confirmSend");
 		return mav;
 	}
 	
-	@RequestMapping("/withdrawal.do")
-	public String memberDelete(@RequestParam MemberVo vo) {
-		
+	@RequestMapping("/confirmHandle.do")	// 탈퇴하기 전 비밀번호 확인
+	public ModelAndView memberDelete(@RequestParam String pass, WebRequest webRequest, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		MemberVo mvo = (MemberVo) webRequest.getAttribute("auth", webRequest.SCOPE_SESSION);
+		String opass = mvo.getPass();	// 현재 로그인한 계정에 대한 패스워드가 pass에 저장됨(pass만 뽑아서)
+		String email = mvo.getEmail();
+		if(opass.equals(pass)) {
+			int del = memberDao.deleteMember(email);
+			session.setAttribute("auth", null);
+			mav.setViewName("confirmPage");
+			return mav;
+		}else {
+			mav.addObject("delFail", "비밀번호가 맞지 않습니다.");
+			mav.setViewName("confirmSend");
+			return mav;
+		}
+	}
+	
+	@RequestMapping("/deleteSuc")
+	public ModelAndView complete(WebRequest webRequest) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("mainPage");
+		return mav;
 		
 	}
-
+	
 
 }
