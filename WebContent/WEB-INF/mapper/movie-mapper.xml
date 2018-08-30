@@ -41,6 +41,13 @@
 	<select id="getRating" resultType="java.util.HashMap">
 		select * from rating 
 	</select>
+	
+	<!-- 8.mongoDB 리뷰 등록 -->
+	<insert id="addReview" parameterType="java.util.HashMap">
+		db.reviewTest.insertOne({"grade":"#{grade}","comments":"#{comments}","username":"#{username}","date":new Date()});
+	</insert>
+	
+	
 </mapper>
 
 

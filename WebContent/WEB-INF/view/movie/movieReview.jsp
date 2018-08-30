@@ -1,0 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 영화 평점 및 리뷰 입력 -->
+<div class="w3-center">
+	<h3>평점 및 영화 리뷰</h3>
+</div>
+<div>
+	<div class="w3-row">
+		<div class="w3-col w3-container" style="width: 26%"></div>
+		<div class="w3-bar w3-col w3-container" style="width: 48%">
+			<button id="usergrade" class="w3-bar-item w3-border"
+				style="width: 18%; height: 10%;" value="8">평점</button>
+			<c:choose>
+				<c:when test="${empty sessionScope.auth}">
+					<a href="/login.do"><textarea id="comments"
+							class="w3-bar-item w3-border"
+							style="width: 64%; height: 10%; resize: none;"
+							placeholder="영화 리뷰는 로그인 후에 작성하실 수 있습니다..."></textarea></a>
+				</c:when>
+				<c:otherwise>
+					<textarea id="comments" class="w3-bar-item w3-border"
+						style="width: 64%; height: 10%; resize: none;"></textarea>
+				</c:otherwise>
+			</c:choose>
+			<button id="submit" class="w3-bar-item w3-button w3-border"
+				style="width: 18%; height: 10%;">입력</button>
+		</div>
+		<div class="w3-col w3-container" style="width: 26%"></div>
+	</div>
+</div>
+
+
+<!-- 리뷰 창 -->
+<div class="w3-Container">
+	<div class="w3-row w3-margin">
+		<div class="w3-col w3-container" style="width: 26%"></div>
+		<div
+			class="w3-col w3-container w3-border-top w3-padding-24 w3-border-bottom w3-light-grey"
+			style="width: 48%">
+			<div class="w3-row w3-margin">
+				<div class="w3-col w3-container w3-border-right" style="width: 80%">
+					<!-- 평점, 리뷰내용, 작성 날짜 -->
+					평점 : ${movie[0].GRADE } | <small><fmt:formatDate
+							value="${movie[0].RELEASE }" pattern="yyyy-MM-dd" /></small> <br />
+					<p>유잼</p>
+				</div>
+				<div class="w3-col w3-container" style="width: 20%">master</div>
+			</div>
+		</div>
+		<div class="w3-col w3-container" style="width: 26%"></div>
+	</div>
+</div>
+
+
+
+<script>
+	$("#submit").on("click", function() {
+		//console.log($(this).attr("value"));
+		var data = {
+			"grade" : $("#usergrade").val(),
+			"comments" : $("#comments").val(),
+			"username" : "${sessionScope.auth.name}"
+		};
+		console.log(data);
+		$.ajax({
+			"url" : "/movie/comment.do", //요청 경로
+			"method" : "post", //post 방식
+			"data" : data,
+			"async" : true
+		//비동기
+		}).done(function(r) {
+			console.log($(this).attr("value") + " : " + r.rst); //결과 출력. 성공시 true, 실패시 false 반환
+		});
+	});
+</script>
