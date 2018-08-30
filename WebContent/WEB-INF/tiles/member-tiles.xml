@@ -82,6 +82,4 @@
 			<put-attribute name="contents" value="/WEB-INF/view/member/deleteSuc.jsp"/>
 		</definition>
 		
-		
-		
 	</tiles-definitions>
