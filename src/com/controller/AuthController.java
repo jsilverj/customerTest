@@ -72,13 +72,17 @@ public class AuthController {
 	}
 
 	@RequestMapping("/joinHandle.do")	// joinPage에서 submit하면 얘를 찾아와서 실행, 회원가입
-	public ModelAndView joinHandle(@ModelAttribute MemberVo memberVo) {
+	public ModelAndView joinHandle(@ModelAttribute MemberVo memberVo, @RequestParam String hemail, String hpass, String hphone) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println(hemail + "/" + hpass + "/" + hphone);
 		Converter converter = new Converter();
 		Date birth = converter.convertToDate(String.valueOf(memberVo.getBirth()));
 		memberVo.setBirth(birth);
 		System.out.println(memberVo);
-		int md = memberDao.addMember(memberVo);
+		int md = 0;
+		if(hemail.equals("a") && hpass.equals("a") && hphone.equals("a")) {
+			md = memberDao.addMember(memberVo);
+		}
 		System.out.println("조인 핸들");
 		if(md == 1) {
 			mav.setViewName("joinSucc");
@@ -91,6 +95,7 @@ public class AuthController {
 	@RequestMapping(value="/emailCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴, 이메일 중복확인
 	@ResponseBody
 	public String emailCheckHandle(@RequestParam String echeck) {	// parameter를 echeck로 받아옴
+		System.out.println("이메일 첵크:");
 		int r = memberDao.emailCheck(echeck);
 		String t;
 		if(r == 0) {
@@ -104,6 +109,7 @@ public class AuthController {
 	@RequestMapping(value="/phoneCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴, 폰번호 중복확인
 	@ResponseBody
 	public String phoneCheckHandle(@RequestParam String pcheck) {	// parameter를 pcheck로 받아옴
+		System.out.println("폰 첵크 : ");
 		System.out.println(pcheck);
 		int r = memberDao.phoneCheck(pcheck);
 		String t;
