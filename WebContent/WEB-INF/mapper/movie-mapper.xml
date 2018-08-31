@@ -44,10 +44,13 @@
 	
 	<!-- 8.mongoDB 리뷰 등록 -->
 	<insert id="addReview" parameterType="java.util.HashMap">
-		db.reviewTest.insertOne({"grade":"#{grade}","comments":"#{comments}","username":"#{username}","date":new Date()});
+		db.reviewTest.insertOne({"grade":"#{grade}","comments":"#{comments}","username":"#{username}","regdate":"#{regdate}"})
 	</insert>
 	
-	
+	<!-- 9.mongoDB 리뷰 가져오기  -->
+	<select id="getReview" resultType="java.util.ArrayList">
+		db.reviewTest.find({})
+	</select>
 </mapper>
 
 

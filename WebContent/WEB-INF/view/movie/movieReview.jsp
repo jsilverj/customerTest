@@ -41,19 +41,24 @@
 <div class="w3-Container">
 	<div class="w3-row w3-margin">
 		<div class="w3-col w3-container" style="width: 26%"></div>
+		
 		<div
 			class="w3-col w3-container w3-border-top w3-padding-24 w3-border-bottom w3-light-grey"
 			style="width: 48%">
+			<c:forEach var="ar" items="${allReview }">
 			<div class="w3-row w3-margin">
 				<div class="w3-col w3-container w3-border-right" style="width: 80%">
 					<!-- 평점, 리뷰내용, 작성 날짜 -->
-					평점 : ${movie[0].GRADE } | <small><fmt:formatDate
-							value="${movie[0].RELEASE }" pattern="yyyy-MM-dd" /></small> <br />
-					<p>유잼</p>
+					평점 : ${ar.grade} | <small><fmt:formatDate
+							value="${ar.regdate }" pattern="yyyy-MM-dd" /></small> <br />
+					<p>${ar.comments }</p>
 				</div>
-				<div class="w3-col w3-container" style="width: 20%">master</div>
+				
+				<div class="w3-col w3-container" style="width: 20%">${ar.username }</div>
 			</div>
+			</c:forEach>
 		</div>
+		
 		<div class="w3-col w3-container" style="width: 26%"></div>
 	</div>
 </div>
@@ -61,14 +66,17 @@
 
 
 <script>
+
+	var rd = new Date();
+	
 	$("#submit").on("click", function() {
-		//console.log($(this).attr("value"));
 		var data = {
 			"grade" : $("#usergrade").val(),
-			"comments" : $("#comments").val(),
-			"username" : "${sessionScope.auth.name}"
+			"comments" : $("textarea").val(),
+			"username" : "${sessionScope.auth.name}",
+			"regdate" : rd
 		};
-		console.log(data);
+		//console.log(data);
 		$.ajax({
 			"url" : "/movie/comment.do", //요청 경로
 			"method" : "post", //post 방식
@@ -76,7 +84,7 @@
 			"async" : true
 		//비동기
 		}).done(function(r) {
-			console.log($(this).attr("value") + " : " + r.rst); //결과 출력. 성공시 true, 실패시 false 반환
+			$("#comments").val("");
 		});
 	});
 </script>

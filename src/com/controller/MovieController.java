@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.MovieDao;
+import com.model.MovieReviewVo;
 
 @Controller
 @RequestMapping("/movie")
@@ -56,6 +58,7 @@ public class MovieController {
 		ModelAndView mav = new ModelAndView();
 		//System.out.println(moviedao.getMovie(num));
 		mav.addObject("movie", moviedao.getMovie(num));  //영화 전체 정보 가져오기
+		mav.addObject("allReview",moviedao.getReview());  //전체 댓글 리스트
 		mav.setViewName("detail");		
 		return mav;
 	}
@@ -64,10 +67,16 @@ public class MovieController {
 	//영화 댓글 페이지
 	@RequestMapping(path = "/comment.do", produces = "application/json;chatset=utf-8")
 	@ResponseBody
-	public void commentHandle(@RequestParam Map map) {
-		System.out.println("mongo done1"+map);
+	public ModelAndView commentHandle(@RequestParam Map map) {
+		//System.out.println("mongo done"+map);
 		moviedao.addReview(map); // DB에 댓글 등록
-		System.out.println("mongo done2");
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("detail");
+		//System.out.println(moviedao.getReview());
+		mav.addObject("allReview",moviedao.getReview());  //전체 댓글 리스트
+		return mav;
+		
 	}
 
 	

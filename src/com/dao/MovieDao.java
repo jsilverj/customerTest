@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.model.MovieDetailVo;
+import com.model.MovieReviewVo;
 
 @Repository
 public class MovieDao {
@@ -47,9 +48,14 @@ public class MovieDao {
 	public List getRating() {
 		return template.selectList("movie.getRating");
 	}
-	
+	//========================================================
 	//8.mongoDB 리뷰 등록
 	public void addReview(Map map) {
 		mongo.insert(map, "reviewTest");
+	}
+	
+	//9.mongoDB 리뷰 가져오기
+	public List<MovieReviewVo> getReview() {
+		return mongo.findAll(MovieReviewVo.class, "reviewTest");
 	}
 }
