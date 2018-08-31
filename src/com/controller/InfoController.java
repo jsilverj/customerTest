@@ -35,9 +35,11 @@ public class InfoController {
 	}
 	
 	@RequestMapping("/writeInfo.do")
-	public String writeInfo() {
-		
-		return "writeInfo";
+	public ModelAndView writeInfo() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("el.master");
+		mav.addObject("contents", "/WEB-INF/view/info/writeInfo.jsp");
+		return mav;
 	}
 	
 	@RequestMapping(value="/insertInfo.do")
@@ -88,11 +90,14 @@ public class InfoController {
 		
 		if((r == 1)&&(fileIn == 1)) {
 			
-			mav.setViewName("redirect:/info.do?num=1&page=1&viewPage=1");
+			//mav.setViewName("redirect:/info.do?num=1&page=1&viewPage=1");
+			mav.setViewName("redirect:/master/info.do?num=1&page=1&viewPage=1");
 		}else {
-			mav.setViewName("infoPageError");
+			//mav.setViewName("infoPageError");
+			mav.setViewName("el.master");
+			mav.addObject("contents","/WEB-INF/view/master/error.jsp");
 		}
-        mav.setViewName("redirect:/info.do?num=1&page=1&viewPage=1");
+        //mav.setViewName("redirect:/info.do?num=1&page=1&viewPage=1");
 		return mav;
 	
 	}

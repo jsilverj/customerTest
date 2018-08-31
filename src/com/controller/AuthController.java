@@ -78,9 +78,13 @@ public class AuthController {
 		Date birth = converter.convertToDate(String.valueOf(memberVo.getBirth()));
 		memberVo.setBirth(birth);
 		System.out.println(memberVo);
-		memberDao.addMember(memberVo);
-		mav.setViewName("loginPage");
-		
+		int md = memberDao.addMember(memberVo);
+		System.out.println("조인 핸들");
+		if(md == 1) {
+			mav.setViewName("joinSucc");
+		}else {
+			mav.setViewName("joinErr");
+		}
 		return mav;
 	}
 	
@@ -110,6 +114,10 @@ public class AuthController {
 		}
 		return "{\"rst\": \""+t+"\"}";
 	}
+	
+
+	
+	
 
 	
 }

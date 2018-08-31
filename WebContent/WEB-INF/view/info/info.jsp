@@ -48,9 +48,9 @@
 	<br/>
 	<c:choose>
 		<c:when test="${sessionScope.auth.grade eq 0 }">
+			<a href="/writeInfo.do"><button type="button" class="w3-button w3-black" style="">글작성</button></a>	
 		</c:when>
 	</c:choose>
-			<a href="/writeInfo.do"><button type="button" class="w3-button w3-black" style="">글작성</button></a>	
 </div>
 
 
