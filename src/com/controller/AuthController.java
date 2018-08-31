@@ -3,6 +3,7 @@ package com.controller;
 import java.sql.Date;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +30,8 @@ public class AuthController {
 	MemberDao memberDao;
 	@Autowired
 	Gson gson;
+//	@Autowired
+//	ServletContext context;
 	
 	@RequestMapping("/logining.do")	// do는 컨트롤러로 갈 때
 	public ModelAndView loginHandle(@RequestParam Map map, HttpSession session, HttpServletResponse response) {
@@ -37,6 +40,9 @@ public class AuthController {
 		MemberVo vo = memberDao.findByEmailAndPass(map);
 		if(vo != null) {
 			session.setAttribute("auth", vo);	// 로그인 성공하면 세션에 넣어두기
+			
+			// context.setAttribute(vo.getEmail(), true);
+			
 			mav.setViewName("mainPage");		// mainpage로 이동
 				if(map.get("keep") != null && map.get("keep").equals("on")) {	// 쿠키
 					Cookie cookie = new Cookie("keep", vo.getEmail());
