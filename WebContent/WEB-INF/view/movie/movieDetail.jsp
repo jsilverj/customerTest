@@ -15,6 +15,11 @@ em {
 	font-size: 24px;
 }
 
+em#re {
+	color: #cc0000;
+	font-size: 18px;
+}
+
 #lay_pop {
 	position: absolute;
 	z-index: 500;
@@ -36,12 +41,27 @@ em {
 	left: 0;
 	top: 0
 }
+
+.synopsis{
+	background-color: #f2f2f2;
+}
+
+.detail{
+	background-color: #f2f2f2;
+}
+
+.front{
+	background-image: url(http://caching.lottecinema.co.kr//Media/MovieFile/MovieImg/201808/13081_105_1.jpg);
+}
+
+
+
 </style>
 
 <div style="height: 20px"></div>
 
 <!-- 영화 트레일러 영역 -->
-<div class="w3-Container w3-dark-grey">
+<div class="w3-Container w3-black w3-center">
 	<div id="all_body"></div>
 	<div id="lay_pop" style="background-color: black;">
 		<div align="right">
@@ -54,65 +74,52 @@ em {
 			allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	</div>
 	<div id="all_body"></div>
-	<input type="image" src="/img/play.png" value="layer"
-		onclick="pushLayer()"></input>
+	<div class="w3-padding w3-margin">
+		<input type="image" class="front" src="/img/play.png" value="layer" onclick="pushLayer()"></input>
+	</div>
 </div>
 
-
+<div align="center"><h3>상세 정보</h3><br/></div>
 <!-- 영화 상세 설명 -->
 <div class="w3-row">
 	<div class="w3-col w3-container" style="width: 26%"></div>
-	<div class="w3-Container w3-red w3-col" style="width: 24%">
-		<!-- 메인 포스터 이미지 🌕🌗 -->
+	<div class="w3-Container w3-blue w3-col" style="width: 24%">
+		<!-- 메인 포스터 이미지 -->
 		<br />
-		<button class="w3-button w3-red">예매하기</button>
+		<a href="/reserve/page.do"><button class="w3-button">예매하기</button></a>
 	</div>
-	<div class="w3-Container w3-green w3-col" style="width: 24%">
+	<div class="detail w3-Container w3-col" style="width: 24%">
 		<h3>${movie[0].MOVIENAME}</h3>
 		<br /> 관람 평점 : <em>${movie[0].GRADE }</em><br /> 관람 등급 :
 		${movie[0].RATING}<br /> 개봉일 :
 		<fmt:formatDate value="${movie[0].RELEASE }" pattern="yyyy-MM-dd" />
-		<br /> 장르 : ${movie[0].GENRE }<br />
+		<br /> 장르 : ${movie[0].GENRE }<br /> 출연진 :
+		<c:forTokens items="${movie[0].CAST}" delims="/" var="ca"
+			varStatus="vs">
+			${ca} 
+			<c:if test="${!vs.last }">,</c:if>
+		</c:forTokens>
 	</div>
 	<div class="w3-col w3-container" style="width: 26%"></div>
 </div>
-
+<br/>
+<br/>
 <!-- 영화 시놉시스 -->
 <div class="w3-center">
 	<h3>시놉시스</h3>
 </div>
 <div class="w3-row">
 	<div class="w3-col w3-container" style="width: 26%"></div>
-	<div class="w3-col w3-blue w3-container" style="width: 48%">
+	<div class="synopsis w3-col w3-container" style="width: 48%">
 		<c:forTokens items="${movie[0].SYNOPSIS}" delims="." var="item">
 			<p>${item}.</p>
 		</c:forTokens>
 	</div>
 	<div class="w3-col w3-container" style="width: 26%"></div>
 </div>
-
-<!-- 영화 출연진 -->
-<div class="w3-center">
-	<h3>출연진</h3>
-</div>
-<div>
-	<div class="w3-row">
-		<div class="w3-col w3-container" style="width: 26%"></div>
-		<div class="w3-col w3-container" style="width: 48%">
-			<c:forTokens items="${movie[0].CAST}" delims="/" var="ca">
-				<div class="w3-col w3-container w3-yellow">${ca}</div>
-			</c:forTokens>
-		</div>
-		<div class="w3-col w3-container" style="width: 26%"></div>
-	</div>
-</div>
-
-
-
-
-<!-- script 영역 -->
-
-
+<br/>
+<br/>
+<br/>
 
 <!-- 비디오(영화 트레일러) -->
 <script language="javascript">

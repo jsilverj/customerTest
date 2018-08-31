@@ -73,7 +73,7 @@ public class MovieController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("detail");
-		//System.out.println(moviedao.getReview());
+		System.out.println(moviedao.getReview());
 		mav.addObject("allReview",moviedao.getReview());  //전체 댓글 리스트
 		return mav;
 		

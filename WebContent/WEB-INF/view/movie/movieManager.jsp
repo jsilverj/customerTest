@@ -46,7 +46,7 @@
 				<div class="w3-panel w3-border w3-sand">
 					<c:forEach var="g" items="${genre }" varStatus="gvs">
 						<input name="genre" class="w3-check" type="checkbox"
-							value="'${g.ID }'">
+							value="'${g.ID }'" onclick="oneCheckbox(this)">
 						<label>${g.GENRE}</label>
 						<c:if test="${((gvs.index+1)%8)==0 }">
 							<br />
@@ -64,7 +64,7 @@
 				</p>
 				<p>
 					<b>시놉시스</b>
-					<textarea class="ta w3-input w3-border w3-sand" name="sysnopsis"
+					<textarea class="ta w3-input w3-border w3-sand" name="synopsis"
 						type="text"></textarea>
 				</p>
 				<p>
@@ -84,3 +84,18 @@
 	</div>
 </form>
 
+
+<script type="text/javascript">
+
+    function oneCheckbox(a){
+
+        var obj = document.getElementsByName("genre");
+
+        for(var i=0; i<obj.length; i++){
+
+            if(obj[i] != a){
+                obj[i].checked = false;
+            }
+        }
+    }
+</script>
