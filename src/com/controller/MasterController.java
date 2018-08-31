@@ -14,12 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.InfoDao;
 import com.dao.MasterDao;
+import com.dao.MovieDao;
 import com.dao.QuestionDao;
 import com.model.AnswerVo;
 import com.model.CustomerVo;
 import com.model.InfoFileVo;
 import com.model.InfoVo;
 import com.model.MemberVo;
+import com.model.MovieDetailVo;
 import com.model.QuestionFileVo;
 import com.model.QuestionVo;
 
@@ -34,6 +36,9 @@ public class MasterController {
 	
 	@Autowired
 	QuestionDao questionDao;
+	
+	@Autowired
+	MovieDao movieDao;
 	
 	@RequestMapping("/showmember.do")
 	public ModelAndView showMember() {
@@ -197,6 +202,55 @@ public class MasterController {
 			mav.setViewName("el.master");
 			mav.addObject("contents", "/WEB-INF/view/master/error.jsp");
 		}
+		return mav;
+	}
+	
+	@RequestMapping("/showMovie.do")
+	public ModelAndView showMovieHandle(@SessionAttribute(name = "auth") MemberVo vo,
+			@RequestParam(value = "num", defaultValue = "1") int num) {
+		ModelAndView mav = new ModelAndView();
+
+		List<MovieDetailVo> qlist = masterDao.getMovieByAll(num);
+
+		int count = masterDao.getMovieByAllCount();
+		int max = count / 10 + ((count % 10) > 0 ? 1 : 0);
+		int page = (num/5)+ ((num % 5) > 0 ? 1 : 0);
+		int minpage = page * 5 - 4;
+		int maxpage = page * 5;
+		if (maxpage > max) {
+			maxpage = max;
+		}
+
+		Map<String, Object> pages = new HashMap<String, Object>();
+
+		pages.put("max", max);
+		pages.put("page", page);
+		pages.put("minpage", minpage);
+		pages.put("maxpage", maxpage);
+		pages.put("num", num);
+		
+		//System.out.println(max+"/"+page+"/"+minpage+"/"+maxpage+"/"+num);
+		
+		mav.setViewName("el.master");
+		mav.addObject("qlist", qlist);
+		mav.addObject("page", pages);
+		mav.addObject("contents", "/WEB-INF/view/master/movie.jsp");
+		
+		return mav;
+	}
+	
+	@RequestMapping("/readMovie.do")
+	public ModelAndView readMovieHandle(@SessionAttribute(name="auth")MemberVo vo,@RequestParam(name="no")int no) {
+		ModelAndView mav = new ModelAndView();
+		MovieDetailVo qvo= masterDao.getMovieByNo(no);
+		//QuestionFileVo qfvo = questionDao.getQuestionFileByParent(no);
+		//List<AnswerVo> avo = questionDao.getAnswerParent(no);
+		mav.setViewName("el.master");
+		mav.addObject("contents", "/WEB-INF/view/master/show.jsp");
+		mav.addObject("qvo", qvo);
+		//mav.addObject("attach", qfvo);
+		//mav.addObject("avo", avo);
+		
 		return mav;
 	}
 	
