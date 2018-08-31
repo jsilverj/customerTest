@@ -83,7 +83,6 @@ public class AuthController {
 		if(hemail.equals("a") && hpass.equals("a") && hphone.equals("a")) {
 			md = memberDao.addMember(memberVo);
 		}
-		System.out.println("조인 핸들");
 		if(md == 1) {
 			mav.setViewName("joinSucc");
 		}else {
@@ -95,7 +94,6 @@ public class AuthController {
 	@RequestMapping(value="/emailCheckHandle.do", produces="application/json;charset=utf-8")	// 컨트롤러 여기 타고 들어옴, 이메일 중복확인
 	@ResponseBody
 	public String emailCheckHandle(@RequestParam String echeck) {	// parameter를 echeck로 받아옴
-		System.out.println("이메일 첵크:");
 		int r = memberDao.emailCheck(echeck);
 		String t;
 		if(r == 0) {
