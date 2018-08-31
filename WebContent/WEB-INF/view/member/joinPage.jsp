@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="functions" uri="http://java.sun.com/jsp/jstl/functions"%>
-<div style="height: 80px"></div>
+<div style="height: 30px"></div>
 <div align="center">
 	<h1>Account</h1>
 	<br />
@@ -102,13 +102,6 @@
 		$("#phoneCheck").html("폰번호 형식에 맞지 않습니다.<br/><br/>");
 	}
 });
-	
-	
-	
-	
-	
-	
-	
 	
 </script>
 
