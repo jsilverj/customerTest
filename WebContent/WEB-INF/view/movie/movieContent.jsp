@@ -30,7 +30,7 @@ em {
 				<b>${mo.MOVIENAME}</b><small><br /> 관람 평점 : </small><em>${mo.GRADE}</em>
 				&nbsp;|&nbsp; <small>${mo.RATING}</small>
 					<div class="w3-bar">
-						<button class="w3-bar-item w3-button" style="width:50%;">예매하기</button>
+						<a href="/reserve/page.do"><button class="w3-bar-item w3-button" style="width:50%;">예매하기</button></a>
 						<a href="/movie/movieDetail.do?num=${mo.NUM }"><button class="w3-bar-item w3-button" style="width:50%;">상세보기</button></a>
 					</div>
 			</div>
