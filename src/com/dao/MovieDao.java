@@ -1,18 +1,24 @@
 package com.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.model.MovieDetailVo;
+import com.model.MovieReviewVo;
 
 @Repository
 public class MovieDao {
 	
 	@Autowired
 	SqlSessionTemplate template;
+	
+	@Autowired
+	MongoTemplate mongo;
 
 	// 1.관리자 - 영화 데이터 입력 
 	public void addMovie(MovieDetailVo vo) {
@@ -27,11 +33,29 @@ public class MovieDao {
 		template.insert("movie.deleteMovie",num);
 	}
 	// 4.영화 상세 정보 가져오기 
-	public List<MovieDetailVo> getMovie() {
-		return template.selectList("movie.getMovie");
+	public List getMovie(int num) {
+		return template.selectList("movie.getMovie",num);
 	}
 	// 5.영화 평점순 가져오기
 	public List getMovieGrade() {
 		return template.selectList("movie.getMovieGrade");
+	}
+	//6.영화 장르 가져오기
+	public List getGenre() {
+		return template.selectList("movie.getGenre");
+	}
+	//7.영화 관람등급 가져오기
+	public List getRating() {
+		return template.selectList("movie.getRating");
+	}
+	//========================================================
+	//8.mongoDB 리뷰 등록
+	public void addReview(Map map) {
+		mongo.insert(map, "reviewTest");
+	}
+	
+	//9.mongoDB 리뷰 가져오기
+	public List<MovieReviewVo> getReview() {
+		return mongo.findAll(MovieReviewVo.class, "reviewTest");
 	}
 }
