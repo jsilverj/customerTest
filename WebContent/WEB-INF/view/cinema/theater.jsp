@@ -16,7 +16,7 @@
 
 	<div align="center">
 	<a href="http://map.daum.net/link/map/29시네마,37.4965791,127.0297537" >
-	<div id="map" style="width:50%;height:350px;"></div>
+	<div id="map" style="width:70%;height:350px;"></div>
 	</a>
 	</div>
 

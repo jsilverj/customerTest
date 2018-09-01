@@ -30,7 +30,7 @@ public class MemberDao {	// DB를 연결해줌
 		return template.selectOne("member.findByEmail", echeck);
 	}
 	public int phoneCheck(String pcheck) {
-		return template.selectOne("memger.findByPhone", pcheck);
+		return template.selectOne("member.findByPhone", pcheck);
 	}
 	
 	public MemberVo cookieVo(String email) {

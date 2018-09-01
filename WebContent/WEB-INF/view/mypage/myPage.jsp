@@ -41,15 +41,15 @@
   <div class="w3-card w3-container" style="min-height:460px">
   <br/>
   <h3>예매/구매내역</h3><br/>
-  <p class="w3-jumbo">🎬</p>
+  <p class="w3-jumbo"><a href="/reserveHandle.do">🎬</a></p>
   </div>
 </div>
 
-<div class="w3-third" onclick="location.href='question/send.do'">	<!-- 컨트롤러로 보냄 -->
+<div class="w3-third" >	<!-- 컨트롤러로 보냄 -->
   <div class="w3-card w3-container" style="min-height:460px">
   <br/>
   <h3>나의 문의내역</h3><br/>
-	<p class="w3-jumbo">📬</p>
+	<p class="w3-jumbo"><a href="/question/send.do">📬</a></p>
   </div>
 </div>
 </div>

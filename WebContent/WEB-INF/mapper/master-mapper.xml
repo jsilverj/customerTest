@@ -22,6 +22,12 @@
 		insert into answer values(answer_seq.nextval,#{aname},#{acontent},#{parent},sysdate)
 	</insert>
 	
+	<select id="getMovieByAll" resultType="com.model.MovieDetailVo" parameterType="java.lang.Integer">
+		select qr.* from(select rownum r,q.* from(select * from movie_detail order by num desc)q)qr where qr.r between #{num}*10-9 and #{num}*10
+	</select>
 	
+	<select id="getMovieByAllCount" resultType="java.lang.Integer" parameterType="com.model.QuestionVo">
+		select count(*) from(select rownum r,q.* from(select * from movie_detail order by num desc)q)qr
+	</select>
 	
 </mapper>

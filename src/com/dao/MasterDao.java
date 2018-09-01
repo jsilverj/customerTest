@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.model.AnswerVo;
 import com.model.CustomerVo;
+import com.model.MovieDetailVo;
 import com.model.QuestionVo;
 
 @Repository
@@ -39,4 +40,18 @@ public class MasterDao {
 	public int addAnswer(AnswerVo vo) {
 		return template.insert("master.addAnswer", vo);
 	}
+	
+	public List<MovieDetailVo> getMovieByAll(int num){
+		return template.selectList("master.getMovieByAll",num);
+	}
+	
+	public int getMovieByAllCount() {
+		return template.selectOne("master.getMovieByAllCount");
+	}
+
+	public MovieDetailVo getMovieByNo(int no) {
+		return template.selectOne("master.getMovieByNo",no);
+	}
+	
+	
 }
