@@ -10,16 +10,16 @@
 
 <!-- 영화 평점 및 리뷰 입력 -->
 <div class="w3-center">
-	<h3>평점 및 영화 리뷰</h3>
+	<h4>평점 및 영화 리뷰</h4>
 </div>
 <div>
 	<div class="w3-row">
 		<div class="w3-col w3-container" style="width: 26%"></div>
 		<div class="w3-bar w3-col w3-container" style="width: 48%">
 
-			<select class="w3-select w3-border w3-sand w3-bar-item"
+			<select class="w3-select w3-border w3-bar-item w3-light-grey"
 				style="width: 18%; height: 10%;" id="usergrade">
-				<option value="" disabled selected>평점</option>
+				<option value="" disabled selected>평점 선택</option>
 				<c:forEach begin="1" end="10" varStatus="star">
 					<option name="grade" value="${star.index}">${star.index }점</option>
 				</c:forEach>
@@ -37,8 +37,8 @@
 						style="width: 64%; height: 10%; resize: none;"></textarea>
 				</c:otherwise>
 			</c:choose>
-			<button id="submit" class="w3-bar-item w3-button w3-border"
-				style="width: 18%; height: 10%;">입력</button>
+			<button id="submit" class="w3-bar-item w3-button w3-border w3-light-grey"
+				style="width: 18%; height: 10%;">등록</button>
 		</div>
 		<div class="w3-col w3-container" style="width: 26%"></div>
 	</div>
@@ -49,7 +49,7 @@
 	<div class="w3-row w3-margin">
 		<div class="w3-col w3-container" style="width: 26%"></div>
 		<div
-			class="w3-col w3-container w3-border-top w3-padding-24 w3-border-bottom w3-light-grey"
+			class="w3-col w3-container w3-border-top w3-padding-24 w3-border-bottomy"
 			style="width: 48%">
 			<c:forEach var="ar" items="${allReview }">
 				<div class="w3-row w3-margin w3-border-bottom w3-padding">
@@ -59,8 +59,7 @@
 						<c:forEach begin="1" end="${ar.grade }" varStatus="vs">			
 									★
 						</c:forEach>
-						) <em id="re">${ar.grade}</em> | <small><fmt:formatDate
-								value="${ar.regdate}" pattern="yyyy-MM-dd" /></small> <br />
+						) <em id="re">${ar.grade}</em> | <small>${ar.regdate}</small> <br />
 						<p>${ar.comments }</p>
 					</div>
 					<div class="w3-col w3-container w3-center w3-margin-top"
@@ -87,13 +86,15 @@
 
 <script>
 	var rd = new Date();
-
+	var regdate = rd.getFullYear()+"-"+(rd.getMonth()+1) +"-"+ rd.getDate(); 
+	var num = ${num};
 	$("#submit").on("click", function() {
 		var data = {
+			"num" : num,
 			"grade" : $("#usergrade").val(),
 			"comments" : $("textarea").val(),
 			"username" : "${sessionScope.auth.name}",
-			"regdate" : rd
+			"regdate" : regdate
 		};
 		//console.log(data);
 		$.ajax({

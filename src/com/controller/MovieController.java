@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.MovieDao;
-import com.model.MovieReviewVo;
 
 @Controller
 @RequestMapping("/movie")
@@ -56,9 +55,9 @@ public class MovieController {
 	@RequestMapping("/movieDetail.do")
 	public ModelAndView detailHandle(@RequestParam("num") int num) {
 		ModelAndView mav = new ModelAndView();
-		//System.out.println(moviedao.getMovie(num));
 		mav.addObject("movie", moviedao.getMovie(num));  //영화 전체 정보 가져오기
-		mav.addObject("allReview",moviedao.getReview());  //전체 댓글 리스트
+		mav.addObject("allReview",moviedao.getReview(String.valueOf(num)));  //전체 댓글 리스트
+		mav.addObject("num",num);
 		mav.setViewName("detail");		
 		return mav;
 	}
@@ -70,11 +69,11 @@ public class MovieController {
 	public ModelAndView commentHandle(@RequestParam Map map) {
 		//System.out.println("mongo done"+map);
 		moviedao.addReview(map); // DB에 댓글 등록
+		String num = (String) map.get("num");
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("detail");
-		System.out.println(moviedao.getReview());
-		mav.addObject("allReview",moviedao.getReview());  //전체 댓글 리스트
+		mav.addObject("allReview",moviedao.getReview(num));  //전체 댓글 리스트
 		return mav;
 		
 	}
