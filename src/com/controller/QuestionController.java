@@ -113,10 +113,9 @@ public class QuestionController {
 	@RequestMapping("/delete.do")
 	public ModelAndView deleteHandle(@RequestParam(name="no")int no) {
 		ModelAndView mav = new ModelAndView();
-		int r = questionDao.deleteQuestion(no);
 		int f = questionDao.deleteQuestionfile(no);
-		int a = questionDao.deleteAnswer(no);
-		
+		int a = questionDao.deleteAnswer(no);		
+		int r = questionDao.deleteQuestion(no);
 		if(r == 1) {
 			mav.setViewName("redirect:/question/send.do");
 		}else {
@@ -133,9 +132,9 @@ public class QuestionController {
 		for(int i =0;i < list.size();i++){
 			//System.out.println(list.get(i));
 			int no = Integer.parseInt(list.get(i));
-			questionDao.deleteQuestion(no);
 			questionDao.deleteQuestionfile(no);
 			questionDao.deleteAnswer(no);
+			questionDao.deleteQuestion(no);
 		}
 		mav.setViewName("redirect:/question/send.do");
 		/*if(r == 1) {

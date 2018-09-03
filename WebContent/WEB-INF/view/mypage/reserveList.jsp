@@ -3,10 +3,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="functions" uri="http://java.sun.com/jsp/jstl/functions"%>
-<div align="center">
-	<h1>Error</h1>	
-	<p>
-		<a href="/index.do"><button class="w3-button w3-black w3-round-large" type="button">main</button></a>
-		<a href="/myPage.do"><button class="w3-button w3-black w3-round-large" type="button">return</button></a>
-	</p>
-</div>
+<h1>예매내역 페이지</h1>

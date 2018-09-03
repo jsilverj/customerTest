@@ -23,7 +23,8 @@
 <form class="w3-container" action="/insertManager.do"
 	enctype="multipart/form-data" method="post">
 	<div align="center">
-		<div class="w3-card-4 w3-margin-bottom" align="center" style="width: 50%;">
+		<div class="w3-card-4 w3-margin-bottom" align="center"
+			style="width: 50%;">
 			<div class="w3-container w3-margin-bottom" align="center">
 				<p>
 					<b>영화 제목</b><input class="w3-input w3-border w3-sand"
@@ -59,8 +60,8 @@
 						class="w3-input w3-border w3-sand" name="cate" type="text" />
 				</p>
 				<p>
-					<b>영화 트레일러 (동영상 url)</b><input
-						class="w3-input w3-border w3-sand" name="url" type="text" />
+					<b>영화 트레일러 (동영상 url)</b><input class="w3-input w3-border w3-sand"
+						name="url" type="text" />
 				</p>
 				<p>
 					<b>시놉시스</b>
@@ -70,9 +71,9 @@
 				<p>
 					<b>상영 예정</b>
 				<div class="w3-panel w3-border w3-sand">
-						<input class="w3-radio" type="radio" name="now" value="1"/>
-						<label>현재 상영작</label> <input class="w3-radio" type="radio"
-							name="now" value="2"/> <label>상영 예정작</label>
+					<input class="w3-radio" type="radio" name="now" value="1" /> <label>현재
+						상영작</label> <input class="w3-radio" type="radio" name="now" value="2" /> <label>상영
+						예정작</label>
 				</div>
 				<button class="w3-btn w3-black">입력</button>
 				<button class="w3-btn w3-black">삭제</button>
@@ -82,8 +83,8 @@
 			</div>
 		</div>
 	</div>
-</form>
 
+<<<<<<< HEAD
 
 <script type="text/javascript">
 
@@ -98,4 +99,19 @@
             }
         }
     }
+=======
+</form>
+<script type="text/javascript">
+	function oneCheckbox(a) {
+
+		var obj = document.getElementsByName("genre");
+
+		for (var i = 0; i < obj.length; i++) {
+
+			if (obj[i] != a) {
+				obj[i].checked = false;
+			}
+		}
+	}
+>>>>>>> branch 'master' of https://github.com/Yeongtae-Seo/alphaProject.git
 </script>

@@ -76,13 +76,23 @@ public class MyPageController {
 		}
 	}
 	
-	@RequestMapping("/deleteSuc")
+	@RequestMapping("/deleteSuc.do")
 	public ModelAndView complete(WebRequest webRequest) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("mainPage");
 		return mav;
 		
 	}
+	
+	@RequestMapping("/reserveHandle.do")
+	public ModelAndView reserveHandle(WebRequest webRequest) {
+		ModelAndView mav = new ModelAndView();
+		MemberVo mvo = (MemberVo) webRequest.getAttribute("auth", webRequest.SCOPE_SESSION);
+		mav.addObject("person",mvo);
+		mav.setViewName("reservePage");
+		return mav;
+	}
+	
 	
 
 }

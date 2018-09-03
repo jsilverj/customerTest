@@ -25,9 +25,12 @@
 			<input class="w3-input" type="text" name="address" id="addr" placeholder="주소 입력 클릭" onclick="sample4_execDaumPostcode()" />
 			<label>- Birth</label>
 			<input class="w3-input" type="date" name="birth" required />
+			<input type="hidden" name="hemail" value="email" id="hemail"/>
+			<input type="hidden" name="hpass" value="pass" id="hpass"/>
+			<input type="hidden" name="hphone" value="phone" id="hphone"/>
 		</div>
 		<p>
-			<button class="w3-button w3-black w3-round-large" type="submit">submit</button>
+			<button class="w3-button w3-black w3-round-large" type="submit" id="bsub" >submit</button>
 			<button class="w3-button w3-black w3-round-large" type="reset">reset</button>
 		</p>
 	</form>
@@ -36,6 +39,7 @@
 	var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	var passRule = /^[A-Za-z0-9]{6,12}$/;
 	var phoneRule =/^\d{3}-\d{3,4}-\d{4}$/;
+
 	
 	$("#email").on("change", function() {	// id 가져올때는 #을 붙여
 			$("#emailCheck").html("");	// #emailCheck는 span id
@@ -51,6 +55,8 @@
 				if(rCheck == "YYYY") {
 					$("#emailCheck").css("color", "green");
 					$("#emailCheck").html("사용가능한 Email 입니다.<br/><br/>");
+					$("#hemail").val("a");
+					console.log(document.getElementById("hemail").value)
 				}else {
 					$("#emailCheck").css("color", "red");
 					$("#emailCheck").html("이미 사용중인 Email 입니다.<br/><br/>");
@@ -69,6 +75,7 @@
 		if(passRule.test($(this).val())) {
 			$("#passCheck").css("color", "green");
 			$("#passCheck").html("사용가능한 비밀번호 입니다.<br/><br/>")
+			$("#hpass").val("a");
 		}else {
 			$("#passCheck").css("color", "red");
 			$("#passCheck").html("비밀번호 형식에 맞지 않습니다.<br/><br/>")	
@@ -83,13 +90,14 @@
 			"url" : "/phoneCheckHandle.do",
 			"method" : "post",
 			"data" : {
-				"echeck" : $(this).val()
+				"pcheck" : $(this).val()
 			}
 		}).done(function(r) {
 			var rCheck = r.rst;
 			if(rCheck == "YYYY") {
 				$("#phoneCheck").css("color", "green");
 				$("#phoneCheck").html("사용가능한 번호 입니다.<br/><br/>");
+				$("#hphone").val("a");
 			}else {
 				$("#phoneCheck").css("color", "red");
 				$("#phoneCheck").html("이미 사용중인 번호 입니다.<br/><br/>");
@@ -103,6 +111,7 @@
 	}
 });
 	
+
 </script>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
