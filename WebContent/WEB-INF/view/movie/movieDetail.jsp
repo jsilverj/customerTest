@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- 영화 상세 페이지 , 미 개봉 영화는 댓글 작성 못하게 해야 함-->
 
 <style>
 em {
@@ -23,11 +22,11 @@ em#re {
 #lay_pop {
 	position: absolute;
 	z-index: 500;
-	width: 1000px;
-	height: 700px;
+	width: 800px;
+	height: 600px;
 	display: none;
 	background-color: #ffffff;
-	border: 2px solid #cccccc
+	border: 2px solid #cccccc;
 }
 
 #all_body {
@@ -39,29 +38,22 @@ em#re {
 	-moz-opacity: 0.5;
 	background-color: #000000;
 	left: 0;
-	top: 0
+	top: 0;
 }
 
-.synopsis{
+.synopsis {
 	background-color: #f2f2f2;
 }
 
-.detail{
-	background-color: #f2f2f2;
+#tdtd {
+	background-size: auto;
 }
-
-.front{
-	background-image: url(http://caching.lottecinema.co.kr//Media/MovieFile/MovieImg/201808/13081_105_1.jpg);
-}
-
-
-
 </style>
 
 <div style="height: 20px"></div>
 
 <!-- 영화 트레일러 영역 -->
-<div class="w3-Container w3-black w3-center">
+<div class="w3-Container w3-black w3-center w3-padding-16">
 	<div id="all_body"></div>
 	<div id="lay_pop" style="background-color: black;">
 		<div align="right">
@@ -70,43 +62,59 @@ em#re {
 		</div>
 		<br />
 		<iframe style="width: 100%; height: 80%;"
-			src="https://www.youtube.com/embed/AEQ8hgz1fDk" frameborder="0"
-			allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			src="https://www.youtube.com/embed/52WsO33F4qg"
+			frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>트레일러</iframe>
 	</div>
-	<div id="all_body"></div>
-	<div class="w3-padding w3-margin">
-		<input type="image" class="front" src="/img/play.png" value="layer" onclick="pushLayer()"></input>
+	<!--<div id="all_body"></div> -->
+
+	<!-- =============================================================================== -->
+	<div class="box w3-row">
+		<div class="w3-col w3-container" style="width: 21%"></div>
+		<div class="w3-col w3-container" style="width: 53%">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td id="tdtd" 
+						background="http://caching.lottecinema.co.kr//Media/MovieFile/MovieImg/201808/13081_105_1.jpg">
+						<img onclick="pushLayer()" src="/img/play.png" />
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="w3-col w3-container" style="width: 26%"></div>
 	</div>
 </div>
 
-<div align="center"><h3>상세 정보</h3><br/></div>
+
 <!-- 영화 상세 설명 -->
+<br/>
 <div class="w3-row">
 	<div class="w3-col w3-container" style="width: 26%"></div>
-	<div class="w3-Container w3-blue w3-col" style="width: 24%">
-		<!-- 메인 포스터 이미지 -->
+	<div class="w3-Container w3-col" style="width: 17%">
+		<input type="image" src="http://caching.lottecinema.co.kr//Media/MovieFile/MovieImg/201808/13109_103_1.jpg"/>
 		<br />
-		<a href="/reserve/page.do"><button class="w3-button">예매하기</button></a>
 	</div>
-	<div class="detail w3-Container w3-col" style="width: 24%">
-		<h3>${movie[0].MOVIENAME}</h3>
-		<br /> 관람 평점 : <em>${movie[0].GRADE }</em><br /> 관람 등급 :
-		${movie[0].RATING}<br /> 개봉일 :
+	<div class="w3-Container w3-col" style="width: 31%">
+		<h3 class="w3-serif w3-border-bottom">${movie[0].MOVIENAME}</h3>
+		<b>관람 평점</b> : <em>${movie[0].GRADE }</em><br/>
+		<b>관람 등급</b> : ${movie[0].RATING}<br /> <b>개봉일</b> :
 		<fmt:formatDate value="${movie[0].RELEASE }" pattern="yyyy-MM-dd" />
-		<br /> 장르 : ${movie[0].GENRE }<br /> 출연진 :
+		<br /> <b>장르</b> : ${movie[0].GENRE }<br /> <b>출연진</b> :
 		<c:forTokens items="${movie[0].CAST}" delims="/" var="ca"
 			varStatus="vs">
 			${ca} 
 			<c:if test="${!vs.last }">,</c:if>
 		</c:forTokens>
+		<br/><br/><br/>
+		<a href="/reserve/page.do"><button class="w3-button w3-light-grey">예매하기</button></a>
 	</div>
 	<div class="w3-col w3-container" style="width: 26%"></div>
 </div>
-<br/>
-<br/>
+<br />
+<br />
+
 <!-- 영화 시놉시스 -->
 <div class="w3-center">
-	<h3>시놉시스</h3>
+	<h4>줄거리</h4>
 </div>
 <div class="w3-row">
 	<div class="w3-col w3-container" style="width: 26%"></div>
@@ -117,9 +125,9 @@ em#re {
 	</div>
 	<div class="w3-col w3-container" style="width: 26%"></div>
 </div>
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
 
 <!-- 비디오(영화 트레일러) -->
 <script language="javascript">

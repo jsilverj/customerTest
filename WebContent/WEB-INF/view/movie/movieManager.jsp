@@ -83,8 +83,7 @@
 			</div>
 		</div>
 	</div>
-
-<<<<<<< HEAD
+</form>
 
 <script type="text/javascript">
 
@@ -98,20 +97,4 @@
                 obj[i].checked = false;
             }
         }
-    }
-=======
-</form>
-<script type="text/javascript">
-	function oneCheckbox(a) {
-
-		var obj = document.getElementsByName("genre");
-
-		for (var i = 0; i < obj.length; i++) {
-
-			if (obj[i] != a) {
-				obj[i].checked = false;
-			}
-		}
-	}
->>>>>>> branch 'master' of https://github.com/Yeongtae-Seo/alphaProject.git
 </script>
